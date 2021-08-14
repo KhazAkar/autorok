@@ -25,6 +25,8 @@ class SigrokCLI():
         if not os.file.isfile(bin_path) or not bin_path.endswith(["sigrok-cli", "sigrok-cli.exe"]):
             self.logger.critical("Provided path is not valid. Deleting this instance.")
             del self
+    def start_measurement(self) -> logging.Logger:
+        raise  NotImplementedError
 
     def detect_devices(self) -> logging.Logger:
         """

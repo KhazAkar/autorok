@@ -1,10 +1,10 @@
-import subprocess, os, typing, logging
-import autorok_devices, autorok_logger
-from autorok_options import *
+import subprocess, pathlib, typing, logging
+import src.autorok_devices, src.autorok_logger
+from src.autorok_options import *
 
 class SigrokCLI():
     
-    def __init__(self, bin_path: str):
+    def __init__(self, bin_path: pathlib.Path, log_path : pathlib.Path):
         """
         Initialization method of the class
 
@@ -20,11 +20,12 @@ class SigrokCLI():
         self.active_channels = None
         self.active_driver = None
         self.sample_method = None
-        self.logger = autorok_logger.configure_logging("SigrokCLI", autorok_logger.INFO)
+        self.logger = src.autorok_logger.configure_logging(log_path, src.autorok_logger.INFO)
 
-        if not os.file.isfile(bin_path) or not bin_path.endswith(["sigrok-cli", "sigrok-cli.exe"]):
+        if not pathlib.Path.is_file(bin_path) or not str(bin_path).endswith(("sigrok-cli", "sigrok-cli.exe")):
             self.logger.critical("Provided path is not valid. Deleting this instance.")
             del self
+
     def start_measurement(self) -> logging.Logger:
         raise  NotImplementedError
 
@@ -80,7 +81,7 @@ class SigrokCLI():
         except ValueError:
                 return self.logger.critical(f"Channel value was not able to be set due to channel descriptor out of range")
 
-    def set_active_device(self, device: autorok_devices._Device) -> logging.Logger:
+    def set_active_device(self, device: src.autorok_devices._Device) -> logging.Logger:
         """
         Method to set active device properly
 
@@ -100,7 +101,7 @@ class SigrokCLI():
             self.active_driver = device.driver
             return self.logger.info(f"Device {self.active_device}, which uses driver {self.active_driver} and have available channels: {self.device_channels} was properly set as active")
         except Exception:
-            return self.logger.cricital("Wrong device name, please pass Devices enum")
+            return self.logger.critical("Wrong device name, please pass Devices enum")
         
 
     def set_sampling(self, method: SampleMethod, value: typing.Union[int, None] = 1) -> logging.Logger:

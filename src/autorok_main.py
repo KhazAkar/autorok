@@ -27,7 +27,7 @@ class SigrokCLI():
             del self
 
     def start_measurement(self) -> logging.Logger:
-        raise  NotImplementedError
+        raise NotImplementedError
 
     def detect_devices(self) -> logging.Logger:
         """
@@ -75,9 +75,8 @@ class SigrokCLI():
         """
         try:
             self.active_channels = channels
-            if channels not in self.device_channels:
-                self.logger.exception("Channel value out of allowed range")
-                raise ValueError("Channel value out of allowed range")
+            if channels not in self.active_device.channels:
+                return self.logger.exception("Channel value out of allowed range")
         except ValueError:
                 return self.logger.critical(f"Channel value was not able to be set due to channel descriptor out of range")
 
@@ -99,7 +98,7 @@ class SigrokCLI():
             self.active_device = device
             self.active_channels = device.channels
             self.active_driver = device.driver
-            return self.logger.info(f"Device {self.active_device}, which uses driver {self.active_driver} and have available channels: {self.device_channels} was properly set as active")
+            return self.logger.info(f"Device {self.active_device}, which uses driver {self.active_driver} and have available channels: {self.active_channels} was properly set as active")
         except Exception:
             return self.logger.critical("Wrong device name, please pass Devices enum")
         

@@ -1,4 +1,4 @@
-import logging
+import logging, sys
 
 # Defining available levels for logging
 
@@ -34,6 +34,10 @@ def configure_logging(filename: str, level: int) -> logging.Logger:
     filelogging = logging.FileHandler(filename)
     filelogging.setLevel(level)
     filelogging.setFormatter(formatting)
+    # Create StreamLogging
+    consolelogging = logging.StreamHandler(sys.stdout)
+    consolelogging.setFormatter(formatting)
     # Finally, add file handling logger to logger #
     log.addHandler(filelogging)
+    log.addHandler(consolelogging)
     return log

@@ -11,7 +11,7 @@ INFO = 20
 DEBUG = 10
 NOTSET = 0
 
-def configure_logging(filename: str, level: int) -> logging.Logger:
+def configure_logging(filename: str, level: int):
     """
     Function to configure project logger
     Parameters
@@ -40,4 +40,4 @@ def configure_logging(filename: str, level: int) -> logging.Logger:
     # Finally, add file handling logger to logger #
     log.addHandler(filelogging)
     log.addHandler(consolelogging)
-    return log
+    

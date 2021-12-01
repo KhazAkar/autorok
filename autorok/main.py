@@ -1,6 +1,6 @@
 import subprocess, pathlib, typing, logging
-import src.autorok_devices, src.autorok_logger
-from src.autorok_options import *
+import autorok.devices as a_devs, autorok.logger as Log
+from autorok.options import *
 
 class SigrokCLI():
     
@@ -14,13 +14,13 @@ class SigrokCLI():
             Path to sigrok-cli binary.
         """
         self.detected_devices = list()
-        self.bin_path = bin_path
+        self.bin_path = str(bin_path)
         self.active_channels = None
         self.active_device = None
         self.active_channels = None
         self.active_driver = None
         self.sample_method = None
-        self.logger = src.autorok_logger.configure_logging(log_path, src.autorok_logger.INFO)
+        self.logger = Log.configure_logging(log_path, Log.INFO)
 
         if not pathlib.Path.is_file(bin_path) or not str(bin_path).endswith(("sigrok-cli", "sigrok-cli.exe")):
             self.logger.critical("Provided path is not valid. Deleting this instance.")
@@ -75,12 +75,13 @@ class SigrokCLI():
         """
         try:
             self.active_channels = channels
-            if channels not in self.active_device.channels:
-                return self.logger.exception("Channel value out of allowed range")
+            for channel in channels:
+                if channel not in self.active_device.channels:
+                    return self.logger.exception("Channel value out of allowed range")
         except ValueError:
                 return self.logger.critical(f"Channel value was not able to be set due to channel descriptor out of range")
 
-    def set_active_device(self, device: src.autorok_devices._Device) -> logging.Logger:
+    def set_active_device(self, device: a_devs._Device) -> logging.Logger:
         """
         Method to set active device properly
 

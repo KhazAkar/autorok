@@ -21,7 +21,7 @@ class SigrokCLI():
         self.active_channels = None
         self.active_driver = None
         self.sample_method = None
-        self.logger = Log.configure_logging(str(log_path), Log.INFO)
+        self.logger = Log.configure_logging(log_path, Log.LOG_LEVEL.INFO)
 
         if not pathlib.Path.is_file(bin_path) or not str(bin_path).endswith(("sigrok-cli", "sigrok-cli.exe")):
             self.logger.critical("Provided path is not valid. Deleting this instance.")
@@ -32,12 +32,7 @@ class SigrokCLI():
 
     def detect_devices(self):
         """
-        Nethod to detect all devices.
-
-        Returns
-        -------
-        logging.Logger
-            Logger object.
+        Method to detect all devices.
         """
         try:
             devices = subprocess.run([self.bin_path, SigrokCLIOptions.Scan.value], capture_output=True, universal_newlines=True)
@@ -93,11 +88,6 @@ class SigrokCLI():
         ----------
         device: Devices
             Enum which contains driver and list of channels for device
-
-        Returns
-        -------
-        logging.Logger
-            Logger object
         """
         try:
             self.active_device = device

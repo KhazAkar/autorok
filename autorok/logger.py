@@ -41,4 +41,5 @@ def configure_logging(filename: pathlib.Path, level: LOG_LEVEL):
     # Finally, add file handling logger to logger #
     log.addHandler(filelogging)
     log.addHandler(consolelogging)
+    return log
     

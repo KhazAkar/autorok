@@ -1,5 +1,5 @@
 from typeguard import typechecked
-import subprocess, pathlib, logging, typing
+import subprocess, pathlib, typing
 import autorok.devices as a_devs, autorok.logger as Log
 from autorok.options import *
 
@@ -47,9 +47,9 @@ class SigrokCLI():
                 line = line.split(" ")
                 value[line[0]] = line[line.index("channels:") + 1: ]
             # Map data from string to internal Enum scheme
-            self.detected_devices = [device for device in value.keys()]
             self.logger.info(f"System detected following devices: {self.detected_devices}")
-
+            self.detected_devices = [getattr(a_devs, device) for device in value.keys()]
+            return self.detected_devices
 
     @typechecked
     def set_active_channels(self, channels: typing.Union[typing.List[int], typing.List[str]]):
@@ -61,11 +61,6 @@ class SigrokCLI():
         channels: typing.Union[typing.List[int], typing.List[str]]
             List of ints/strings for setting active channels for active device
 
-        Returns
-        -------
-        logging.Logger
-            Logger object.
-
         Raises
         ------
         ValueError
@@ -74,13 +69,15 @@ class SigrokCLI():
         try:
             self.active_channels = channels
             for channel in channels:
-                if channel not in self.active_device.channels:
+                if channel not in self.active_device.available_channels:
                     self.logger.exception("Channel value out of allowed range")
         except ValueError:
                 self.logger.critical(f"Channel value was not able to be set due to channel descriptor out of range")
 
+        return self.active_channels
+
     @typechecked
-    def set_active_device(self, device: a_devs._Device):
+    def set_active_device(self, device: a_devs.Device) -> a_devs.Device:
         """
         Method to set active device properly
 
@@ -91,11 +88,13 @@ class SigrokCLI():
         """
         try:
             self.active_device = device
-            self.active_channels = device.channels
+            self.active_channels = device.available_channels
             self.active_driver = device.driver
-            self.logger.info(f"Device {self.active_device}, which uses driver {self.active_driver} and have available channels: {self.active_channels} was properly set as active")
+            self.logger.info(f"Device {self.active_device}, which uses driver {self.active_driver} and have available channels: {self.available_channels} was properly set as active")
         except Exception:
             self.logger.critical("Wrong device name, please pass Devices enum")
+
+        return self.active_device
         
     @typechecked
     def set_sampling(self, method: SampleMethod, value: typing.Union[int, None] = 1):
@@ -116,3 +115,5 @@ class SigrokCLI():
                 self.sampling_value = value
         except Exception:
             self.logger.exception("Wrong value was passed to the function.")
+
+        return self.sample_method if method == SampleMethod.Continous else (self.sample_method, value)

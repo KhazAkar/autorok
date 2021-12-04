@@ -46,9 +46,11 @@ class SigrokCLI():
             for line in str_split:
                 line = line.split(" ")
                 value[line[0]] = line[line.index("channels:") + 1: ]
-            # Map data from string to internal Enum scheme
+            for device in value:
+                for idx, supported_device in enumerate(a_devs.__all__):
+                    if device.upper() == supported_device.upper():
+                        self.detected_devices.append(getattr(a_devs, a_devs.__all__[idx]))
             self.logger.info(f"System detected following devices: {self.detected_devices}")
-            self.detected_devices = [getattr(a_devs, device) for device in value.keys()]
             return self.detected_devices
 
     @typechecked

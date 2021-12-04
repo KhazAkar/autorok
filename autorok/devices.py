@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+__all__ = ["Demo", "DSLogicPlus", "Device"]
+
 @dataclass
 class Device:
     driver: str

@@ -2,12 +2,15 @@ from dataclasses import dataclass
 
 __all__ = ["Demo", "DSLogicPlus", "Device"]
 
-@dataclass
+@dataclass(repr=False)
 class Device:
     driver: str
     available_channels: tuple
     active_channels: list
     options: list
+
+    def __repr__(self):
+        return f"{self.driver}"
 
 DSLogicPlus = Device("dreamsourcelab-dslogic", (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15), [0, 1, 2, 3, 4,
     5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], [""])

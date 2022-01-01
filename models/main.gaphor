@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gaphor xmlns="http://gaphor.sourceforge.net/model" version="3.0" gaphor-version="2.7.1">
+<StyleSheet id="784c7633-6b2d-11ec-ba06-b70265b0afec"/>
+<Package id="784ca312-6b2d-11ec-9387-b70265b0afec">
+<name>
+<val>Autorok</val>
+</name>
+<nestedPackage>
+<reflist>
+<ref refid="25d685d4-6b49-11ec-bb6f-b70265b0afec"/>
+<ref refid="2eeee01c-6b49-11ec-973b-b70265b0afec"/>
+<ref refid="5969b804-6b4b-11ec-bd96-b70265b0afec"/>
+</reflist>
+</nestedPackage>
+<ownedDiagram>
+<reflist>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</reflist>
+</ownedDiagram>
+<ownedType>
+<reflist>
+<ref refid="ba0a0039-6b4b-11ec-8e6a-b70265b0afec"/>
+</reflist>
+</ownedType>
+</Package>
+<Diagram id="784ca4b1-6b2d-11ec-bfec-b70265b0afec">
+<element>
+<ref refid="784ca312-6b2d-11ec-9387-b70265b0afec"/>
+</element>
+<name>
+<val>Autorok</val>
+</name>
+<ownedPresentation>
+<reflist>
+<ref refid="e6f275a3-6b49-11ec-966d-b70265b0afec"/>
+<ref refid="edbe102c-6b49-11ec-ab60-b70265b0afec"/>
+<ref refid="f348742b-6b49-11ec-9538-b70265b0afec"/>
+<ref refid="fa0e377d-6b49-11ec-a57d-b70265b0afec"/>
+<ref refid="123191ed-6b4a-11ec-9dd3-b70265b0afec"/>
+<ref refid="1d702b04-6b4a-11ec-b92e-b70265b0afec"/>
+<ref refid="43b604ae-6b4a-11ec-a584-b70265b0afec"/>
+<ref refid="4728a4df-6b4a-11ec-9ef2-b70265b0afec"/>
+<ref refid="5de688b3-6b4a-11ec-8a67-b70265b0afec"/>
+<ref refid="6e430e45-6b4a-11ec-a81f-b70265b0afec"/>
+<ref refid="78f915ef-6b4a-11ec-88ac-b70265b0afec"/>
+<ref refid="7ee953cf-6b4a-11ec-b0a3-b70265b0afec"/>
+<ref refid="92be42b9-6b4a-11ec-977d-b70265b0afec"/>
+<ref refid="ba0a2958-6b4b-11ec-bbfd-b70265b0afec"/>
+<ref refid="0a5ed3dd-6b4a-11ec-b406-b70265b0afec"/>
+<ref refid="18c13fbe-6b4a-11ec-a76b-b70265b0afec"/>
+<ref refid="39da17c8-6b4a-11ec-a629-b70265b0afec"/>
+<ref refid="3d8b4cc7-6b4a-11ec-815d-b70265b0afec"/>
+<ref refid="416073e0-6b4a-11ec-ae45-b70265b0afec"/>
+<ref refid="671175bf-6b4a-11ec-9b51-b70265b0afec"/>
+<ref refid="c3313b78-6b4b-11ec-a946-b70265b0afec"/>
+</reflist>
+</ownedPresentation>
+</Diagram>
+<Package id="25d685d4-6b49-11ec-bb6f-b70265b0afec">
+<name>
+<val>SigrokCLI</val>
+</name>
+<nestedPackage>
+<reflist>
+<ref refid="6ec8df7f-6b49-11ec-be29-b70265b0afec"/>
+</reflist>
+</nestedPackage>
+<ownedDiagram>
+<reflist>
+<ref refid="3b4b6315-6b49-11ec-95ae-b70265b0afec"/>
+</reflist>
+</ownedDiagram>
+<ownedType>
+<reflist>
+<ref refid="1c07a860-6b49-11ec-87a1-b70265b0afec"/>
+</reflist>
+</ownedType>
+<package>
+<ref refid="784ca312-6b2d-11ec-9387-b70265b0afec"/>
+</package>
+</Package>
+<Package id="2eeee01c-6b49-11ec-973b-b70265b0afec">
+<name>
+<val>LibSigrok</val>
+</name>
+<nestedPackage>
+<reflist>
+<ref refid="65839248-6b49-11ec-b537-b70265b0afec"/>
+</reflist>
+</nestedPackage>
+<ownedDiagram>
+<reflist>
+<ref refid="37f70adf-6b49-11ec-9dfe-b70265b0afec"/>
+</reflist>
+</ownedDiagram>
+<ownedType>
+<reflist>
+<ref refid="47891872-6b49-11ec-8dcc-b70265b0afec"/>
+</reflist>
+</ownedType>
+<package>
+<ref refid="784ca312-6b2d-11ec-9387-b70265b0afec"/>
+</package>
+</Package>
+<Diagram id="37f70adf-6b49-11ec-9dfe-b70265b0afec">
+<element>
+<ref refid="2eeee01c-6b49-11ec-973b-b70265b0afec"/>
+</element>
+<name>
+<val>LibSigrok diagram</val>
+</name>
+<ownedPresentation>
+<reflist>
+<ref refid="47894269-6b49-11ec-bfb0-b70265b0afec"/>
+<ref refid="bf214c79-6b49-11ec-95a9-b70265b0afec"/>
+</reflist>
+</ownedPresentation>
+</Diagram>
+<Diagram id="3b4b6315-6b49-11ec-95ae-b70265b0afec">
+<element>
+<ref refid="25d685d4-6b49-11ec-bb6f-b70265b0afec"/>
+</element>
+<name>
+<val>SigrokCLI diagram</val>
+</name>
+<ownedPresentation>
+<reflist>
+<ref refid="4073f52b-6b49-11ec-a3e6-b70265b0afec"/>
+<ref refid="d6cd3b00-6b49-11ec-aef9-b70265b0afec"/>
+</reflist>
+</ownedPresentation>
+</Diagram>
+<ClassItem id="4073f52b-6b49-11ec-a3e6-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 242.0, 199.0)</val>
+</matrix>
+<width>
+<val>100.0</val>
+</width>
+<height>
+<val>54.0</val>
+</height>
+<diagram>
+<ref refid="3b4b6315-6b49-11ec-95ae-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="1c07a860-6b49-11ec-87a1-b70265b0afec"/>
+</subject>
+</ClassItem>
+<Class id="1c07a860-6b49-11ec-87a1-b70265b0afec">
+<name>
+<val>SigrokCLI</val>
+</name>
+<package>
+<ref refid="25d685d4-6b49-11ec-bb6f-b70265b0afec"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="4073f52b-6b49-11ec-a3e6-b70265b0afec"/>
+</reflist>
+</presentation>
+</Class>
+<Class id="47891872-6b49-11ec-8dcc-b70265b0afec">
+<name>
+<val>LibSigrok</val>
+</name>
+<package>
+<ref refid="2eeee01c-6b49-11ec-973b-b70265b0afec"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="47894269-6b49-11ec-bfb0-b70265b0afec"/>
+</reflist>
+</presentation>
+</Class>
+<ClassItem id="47894269-6b49-11ec-bfb0-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 197.0, 372.0)</val>
+</matrix>
+<width>
+<val>100.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="37f70adf-6b49-11ec-9dfe-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="47891872-6b49-11ec-8dcc-b70265b0afec"/>
+</subject>
+</ClassItem>
+<Package id="65839248-6b49-11ec-b537-b70265b0afec">
+<name>
+<val>LibSigrok UseCases</val>
+</name>
+<package>
+<ref refid="2eeee01c-6b49-11ec-973b-b70265b0afec"/>
+</package>
+</Package>
+<Package id="6ec8df7f-6b49-11ec-be29-b70265b0afec">
+<name>
+<val>SigrokCLI UseCases</val>
+</name>
+<package>
+<ref refid="25d685d4-6b49-11ec-bb6f-b70265b0afec"/>
+</package>
+</Package>
+<Package id="b53f97ac-6b49-11ec-87f4-b70265b0afec">
+<name>
+<val>LibSigrok Components</val>
+</name>
+<ownedType>
+<reflist>
+<ref refid="bf20fb8c-6b49-11ec-bedf-b70265b0afec"/>
+<ref refid="fa0e168d-6b49-11ec-b011-b70265b0afec"/>
+</reflist>
+</ownedType>
+<package>
+<ref refid="5969b804-6b4b-11ec-bd96-b70265b0afec"/>
+</package>
+</Package>
+<Component id="bf20fb8c-6b49-11ec-bedf-b70265b0afec">
+<name>
+<val>libsigrok</val>
+</name>
+<package>
+<ref refid="b53f97ac-6b49-11ec-87f4-b70265b0afec"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="bf214c79-6b49-11ec-95a9-b70265b0afec"/>
+<ref refid="edbe102c-6b49-11ec-ab60-b70265b0afec"/>
+</reflist>
+</presentation>
+</Component>
+<ComponentItem id="bf214c79-6b49-11ec-95a9-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 184.0, 165.0)</val>
+</matrix>
+<width>
+<val>166.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="37f70adf-6b49-11ec-9dfe-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="bf20fb8c-6b49-11ec-bedf-b70265b0afec"/>
+</subject>
+</ComponentItem>
+<Package id="d072027c-6b49-11ec-ae57-b70265b0afec">
+<name>
+<val>SigrokCLI Components</val>
+</name>
+<ownedType>
+<reflist>
+<ref refid="d6cd184e-6b49-11ec-83b4-b70265b0afec"/>
+<ref refid="1d6fffcc-6b4a-11ec-9f78-b70265b0afec"/>
+</reflist>
+</ownedType>
+<package>
+<ref refid="5969b804-6b4b-11ec-bd96-b70265b0afec"/>
+</package>
+</Package>
+<Component id="d6cd184e-6b49-11ec-83b4-b70265b0afec">
+<name>
+<val>sigrokcli</val>
+</name>
+<package>
+<ref refid="d072027c-6b49-11ec-ae57-b70265b0afec"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="d6cd3b00-6b49-11ec-aef9-b70265b0afec"/>
+<ref refid="f348742b-6b49-11ec-9538-b70265b0afec"/>
+</reflist>
+</presentation>
+</Component>
+<ComponentItem id="d6cd3b00-6b49-11ec-aef9-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 210.0, 442.0)</val>
+</matrix>
+<width>
+<val>166.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="3b4b6315-6b49-11ec-95ae-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="d6cd184e-6b49-11ec-83b4-b70265b0afec"/>
+</subject>
+</ComponentItem>
+<Component id="e6f244bd-6b49-11ec-8b23-b70265b0afec">
+<name>
+<val>CommonInterface</val>
+</name>
+<package>
+<ref refid="5969b804-6b4b-11ec-bd96-b70265b0afec"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="e6f275a3-6b49-11ec-966d-b70265b0afec"/>
+</reflist>
+</presentation>
+</Component>
+<ComponentItem id="e6f275a3-6b49-11ec-966d-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 496.0, 357.0)</val>
+</matrix>
+<width>
+<val>176.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="e6f244bd-6b49-11ec-8b23-b70265b0afec"/>
+</subject>
+</ComponentItem>
+<ComponentItem id="edbe102c-6b49-11ec-ab60-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 391.0, 459.0)</val>
+</matrix>
+<width>
+<val>105.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="bf20fb8c-6b49-11ec-bedf-b70265b0afec"/>
+</subject>
+</ComponentItem>
+<ComponentItem id="f348742b-6b49-11ec-9538-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 672.0, 459.0)</val>
+</matrix>
+<width>
+<val>103.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="d6cd184e-6b49-11ec-83b4-b70265b0afec"/>
+</subject>
+</ComponentItem>
+<Artifact id="fa0e168d-6b49-11ec-b011-b70265b0afec">
+<name>
+<val>libsigrok.py</val>
+</name>
+<package>
+<ref refid="b53f97ac-6b49-11ec-87f4-b70265b0afec"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="fa0e377d-6b49-11ec-a57d-b70265b0afec"/>
+</reflist>
+</presentation>
+</Artifact>
+<ArtifactItem id="fa0e377d-6b49-11ec-a57d-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 391.0, 549.0)</val>
+</matrix>
+<width>
+<val>135.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="fa0e168d-6b49-11ec-b011-b70265b0afec"/>
+</subject>
+</ArtifactItem>
+<Line id="0a5ed3dd-6b4a-11ec-b406-b70265b0afec">
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 433.0, 508.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (0.0, 41.0)]</val>
+</points>
+</Line>
+<Artifact id="12317de0-6b4a-11ec-96a0-b70265b0afec">
+<name>
+<val>common.py</val>
+</name>
+<package>
+<ref refid="5969b804-6b4b-11ec-bd96-b70265b0afec"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="123191ed-6b4a-11ec-9dd3-b70265b0afec"/>
+</reflist>
+</presentation>
+</Artifact>
+<ArtifactItem id="123191ed-6b4a-11ec-9dd3-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 496.0, 254.0)</val>
+</matrix>
+<width>
+<val>135.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="12317de0-6b4a-11ec-96a0-b70265b0afec"/>
+</subject>
+</ArtifactItem>
+<Line id="18c13fbe-6b4a-11ec-a76b-b70265b0afec">
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 573.0, 326.0)</val>
+</matrix>
+<points>
+<val>[(-17.0, -22.0), (0.0, 31.0)]</val>
+</points>
+</Line>
+<Artifact id="1d6fffcc-6b4a-11ec-9f78-b70265b0afec">
+<name>
+<val>sigrokcli.py</val>
+</name>
+<package>
+<ref refid="d072027c-6b49-11ec-ae57-b70265b0afec"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="1d702b04-6b4a-11ec-b92e-b70265b0afec"/>
+</reflist>
+</presentation>
+</Artifact>
+<ArtifactItem id="1d702b04-6b4a-11ec-b92e-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 672.0, 549.0)</val>
+</matrix>
+<width>
+<val>135.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="1d6fffcc-6b4a-11ec-9f78-b70265b0afec"/>
+</subject>
+</ArtifactItem>
+<Line id="39da17c8-6b4a-11ec-a629-b70265b0afec">
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 498.0, 405.0)</val>
+</matrix>
+<points>
+<val>[(-13.0, 8.0), (-54.5, 46.0)]</val>
+</points>
+</Line>
+<Line id="3d8b4cc7-6b4a-11ec-815d-b70265b0afec">
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 669.0, 404.0)</val>
+</matrix>
+<points>
+<val>[(4.5, 9.0), (39.0, 45.0)]</val>
+</points>
+</Line>
+<Line id="416073e0-6b4a-11ec-ae45-b70265b0afec">
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 716.0, 504.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (0.0, 45.0)]</val>
+</points>
+</Line>
+<Box id="43b604ae-6b4a-11ec-a584-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 373.0, 451.0)</val>
+</matrix>
+<width>
+<val>169.0</val>
+</width>
+<height>
+<val>158.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+</Box>
+<Box id="4728a4df-6b4a-11ec-9ef2-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 657.0, 449.0)</val>
+</matrix>
+<width>
+<val>168.0</val>
+</width>
+<height>
+<val>160.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+</Box>
+<Artifact id="5de65450-6b4a-11ec-be63-b70265b0afec">
+<name>
+<val>log.py</val>
+</name>
+<package>
+<ref refid="5969b804-6b4b-11ec-bd96-b70265b0afec"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="5de688b3-6b4a-11ec-8a67-b70265b0afec"/>
+</reflist>
+</presentation>
+</Artifact>
+<ArtifactItem id="5de688b3-6b4a-11ec-8a67-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 673.5, 254.0)</val>
+</matrix>
+<width>
+<val>135.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="5de65450-6b4a-11ec-be63-b70265b0afec"/>
+</subject>
+</ArtifactItem>
+<Line id="671175bf-6b4a-11ec-9b51-b70265b0afec">
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 735.0, 301.0)</val>
+</matrix>
+<points>
+<val>[(-2.0, 3.0), (-146.0, 56.0)]</val>
+</points>
+</Line>
+<Comment id="6e42faa3-6b4a-11ec-beec-b70265b0afec">
+<body>
+<val>ctypes implementation</val>
+</body>
+<presentation>
+<reflist>
+<ref refid="6e430e45-6b4a-11ec-a81f-b70265b0afec"/>
+</reflist>
+</presentation>
+</Comment>
+<CommentItem id="6e430e45-6b4a-11ec-a81f-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 230.0, 509.0)</val>
+</matrix>
+<width>
+<val>138.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="6e42faa3-6b4a-11ec-beec-b70265b0afec"/>
+</subject>
+</CommentItem>
+<Comment id="78f908e1-6b4a-11ec-a748-b70265b0afec">
+<body>
+<val>sigrok-cli implementation</val>
+</body>
+<presentation>
+<reflist>
+<ref refid="78f915ef-6b4a-11ec-88ac-b70265b0afec"/>
+</reflist>
+</presentation>
+</Comment>
+<CommentItem id="78f915ef-6b4a-11ec-88ac-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 839.0, 524.0)</val>
+</matrix>
+<width>
+<val>138.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="78f908e1-6b4a-11ec-a748-b70265b0afec"/>
+</subject>
+</CommentItem>
+<Comment id="7ee94432-6b4a-11ec-bb7c-b70265b0afec">
+<body>
+<val>commonnly used functionalities, like file access, logging etc</val>
+</body>
+<presentation>
+<reflist>
+<ref refid="7ee953cf-6b4a-11ec-b0a3-b70265b0afec"/>
+</reflist>
+</presentation>
+</Comment>
+<CommentItem id="7ee953cf-6b4a-11ec-b0a3-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 825.0, 260.5)</val>
+</matrix>
+<width>
+<val>129.0</val>
+</width>
+<height>
+<val>129.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="7ee94432-6b4a-11ec-bb7c-b70265b0afec"/>
+</subject>
+</CommentItem>
+<Box id="92be42b9-6b4a-11ec-977d-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 391.0, 220.0)</val>
+</matrix>
+<width>
+<val>519.0</val>
+</width>
+<height>
+<val>176.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+</Box>
+<Package id="5969b804-6b4b-11ec-bd96-b70265b0afec">
+<name>
+<val>Autorok Components</val>
+</name>
+<nestedPackage>
+<reflist>
+<ref refid="b53f97ac-6b49-11ec-87f4-b70265b0afec"/>
+<ref refid="d072027c-6b49-11ec-ae57-b70265b0afec"/>
+</reflist>
+</nestedPackage>
+<ownedType>
+<reflist>
+<ref refid="12317de0-6b4a-11ec-96a0-b70265b0afec"/>
+<ref refid="e6f244bd-6b49-11ec-8b23-b70265b0afec"/>
+<ref refid="5de65450-6b4a-11ec-be63-b70265b0afec"/>
+</reflist>
+</ownedType>
+<package>
+<ref refid="784ca312-6b2d-11ec-9387-b70265b0afec"/>
+</package>
+</Package>
+<Artifact id="ba0a0039-6b4b-11ec-8e6a-b70265b0afec">
+<name>
+<val>devices.py</val>
+</name>
+<package>
+<ref refid="784ca312-6b2d-11ec-9387-b70265b0afec"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="ba0a2958-6b4b-11ec-bbfd-b70265b0afec"/>
+</reflist>
+</presentation>
+</Artifact>
+<ArtifactItem id="ba0a2958-6b4b-11ec-bbfd-b70265b0afec">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 308.5, 254.0)</val>
+</matrix>
+<width>
+<val>135.0</val>
+</width>
+<height>
+<val>50.0</val>
+</height>
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<subject>
+<ref refid="ba0a0039-6b4b-11ec-8e6a-b70265b0afec"/>
+</subject>
+</ArtifactItem>
+<Line id="c3313b78-6b4b-11ec-a946-b70265b0afec">
+<diagram>
+<ref refid="784ca4b1-6b2d-11ec-bfec-b70265b0afec"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 439.0, 303.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (103.0, 54.0)]</val>
+</points>
+</Line>
+</gaphor>

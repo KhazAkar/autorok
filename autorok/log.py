@@ -9,8 +9,6 @@ class Log:
         self.status: bool = None
         self.live_cfg: typing.Dict[str] = {}
         self.file_cfg: pathlib.Path = pathlib.Path()
-        self.__log_stream = logging.StreamHandler()
-        self.__log_file = logging.FileHandler()
         self.__cfg_parser = configparser.ConfigParser()
 
     def enable_logging(self):
@@ -20,3 +18,4 @@ class Log:
     def disable_logging(self):
         self.status = False
         return self.status
+

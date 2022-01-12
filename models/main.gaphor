@@ -622,6 +622,7 @@
 <ref refid="d425106e-716e-11ec-9aab-bde0d80c0086"/>
 <ref refid="bab75035-7185-11ec-8f59-bde0d80c0086"/>
 <ref refid="084bd7c2-7263-11ec-9c3e-6532c27373e5"/>
+<ref refid="ebafd9c1-7327-11ec-a67b-e5e68367ca34"/>
 </reflist>
 </presentation>
 </Actor>
@@ -903,6 +904,7 @@
 <ref refid="b7439f4f-6c1a-11ec-b4d3-9532460bbeb0"/>
 <ref refid="00cd68c5-6c1b-11ec-9a4a-9532460bbeb0"/>
 <ref refid="12f046d1-6c1b-11ec-bc2a-9532460bbeb0"/>
+<ref refid="e11336ce-7327-11ec-9bb2-e5e68367ca34"/>
 </reflist>
 </nestedPackage>
 <ownedType>
@@ -2273,7 +2275,7 @@ Various parameters:
 </Comment>
 <CommentItem id="0e11abb8-7263-11ec-8fb4-6532c27373e5">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 367.0, 272.0)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 362.5, 230.0)</val>
 </matrix>
 <width>
 <val>626.0</val>
@@ -2290,7 +2292,7 @@ Various parameters:
 </CommentItem>
 <Box id="583f70ee-7263-11ec-a737-6532c27373e5">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 362.5, 358.0)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 367.0, 366.0)</val>
 </matrix>
 <width>
 <val>626.0</val>
@@ -2511,7 +2513,7 @@ Various parameters:
 </UseCase>
 <UseCaseItem id="5c02d459-7267-11ec-93d7-6532c27373e5">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 694.0, 419.9469696969697)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 725.0, 406.0)</val>
 </matrix>
 <width>
 <val>258.0</val>
@@ -2549,7 +2551,7 @@ Various parameters:
 <val>(1.0, 0.0, 0.0, 1.0, 493.0, 508.0)</val>
 </matrix>
 <points>
-<val>[(15.0, -11.147058823529411), (201.0, -30.05303030303031)]</val>
+<val>[(15.0, -11.147058823529411), (232.0, -44.0)]</val>
 </points>
 <head-connection>
 <ref refid="efd66fa7-7266-11ec-8cd4-6532c27373e5"/>
@@ -2623,7 +2625,7 @@ Various parameters:
 </UseCase>
 <UseCaseItem id="910d5df1-7267-11ec-8de7-6532c27373e5">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 698.0, 548.0)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 698.0, 508.5)</val>
 </matrix>
 <width>
 <val>250.0</val>
@@ -2661,7 +2663,7 @@ Various parameters:
 <val>(1.0, 0.0, 0.0, 1.0, 492.0, 543.0)</val>
 </matrix>
 <points>
-<val>[(16.0, 5.004854368932037), (206.0, 58.0)]</val>
+<val>[(16.0, 5.004854368932037), (206.0, 18.5)]</val>
 </points>
 <head-connection>
 <ref refid="efd66fa7-7266-11ec-8cd4-6532c27373e5"/>
@@ -2718,6 +2720,333 @@ Various parameters:
 </owningAssociation>
 <type>
 <ref refid="910d3728-7267-11ec-af75-6532c27373e5"/>
+</type>
+</Property>
+<Package id="e11336ce-7327-11ec-9bb2-e5e68367ca34">
+<name>
+<val>#9 UseCase - Default Log Configuration</val>
+</name>
+<ownedDiagram>
+<reflist>
+<ref refid="e9a0d374-7327-11ec-a84d-e5e68367ca34"/>
+</reflist>
+</ownedDiagram>
+<ownedType>
+<reflist>
+<ref refid="f15bac8d-7327-11ec-a0f4-e5e68367ca34"/>
+<ref refid="01f0ec83-7328-11ec-9d66-e5e68367ca34"/>
+<ref refid="51dc38e6-7328-11ec-b304-e5e68367ca34"/>
+<ref refid="58c9a31d-7328-11ec-ab21-e5e68367ca34"/>
+</reflist>
+</ownedType>
+<package>
+<ref refid="611d4191-6bec-11ec-840c-9532460bbeb0"/>
+</package>
+</Package>
+<Diagram id="e9a0d374-7327-11ec-a84d-e5e68367ca34">
+<element>
+<ref refid="e11336ce-7327-11ec-9bb2-e5e68367ca34"/>
+</element>
+<name>
+<val>#9 UseCase - Default Log Configuration diagram</val>
+</name>
+<ownedPresentation>
+<reflist>
+<ref refid="ebafd9c1-7327-11ec-a67b-e5e68367ca34"/>
+<ref refid="fb215ecd-7327-11ec-bd5d-e5e68367ca34"/>
+<ref refid="51dc62d0-7328-11ec-bec9-e5e68367ca34"/>
+<ref refid="0fad2ba4-7328-11ec-bf7d-e5e68367ca34"/>
+<ref refid="fd66db81-7327-11ec-a7b5-e5e68367ca34"/>
+<ref refid="0124bede-7328-11ec-ac72-e5e68367ca34"/>
+<ref refid="58262dda-7328-11ec-9225-e5e68367ca34"/>
+</reflist>
+</ownedPresentation>
+</Diagram>
+<ActorItem id="ebafd9c1-7327-11ec-a67b-e5e68367ca34">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 243.0, 458.0)</val>
+</matrix>
+<width>
+<val>38.0</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<diagram>
+<ref refid="e9a0d374-7327-11ec-a84d-e5e68367ca34"/>
+</diagram>
+<subject>
+<ref refid="eeb989e4-6b4c-11ec-8827-b70265b0afec"/>
+</subject>
+</ActorItem>
+<Box id="fb215ecd-7327-11ec-bd5d-e5e68367ca34">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 480.0, 410.0)</val>
+</matrix>
+<width>
+<val>303.0</val>
+</width>
+<height>
+<val>156.0</val>
+</height>
+<children>
+<reflist>
+<ref refid="51dc62d0-7328-11ec-bec9-e5e68367ca34"/>
+</reflist>
+</children>
+<diagram>
+<ref refid="e9a0d374-7327-11ec-a84d-e5e68367ca34"/>
+</diagram>
+</Box>
+<UseCaseItem id="fd66db81-7327-11ec-a7b5-e5e68367ca34">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 494.0, 458.0)</val>
+</matrix>
+<width>
+<val>113.0</val>
+</width>
+<height>
+<val>67.39603960396039</val>
+</height>
+<diagram>
+<ref refid="e9a0d374-7327-11ec-a84d-e5e68367ca34"/>
+</diagram>
+<subject>
+<ref refid="f15bac8d-7327-11ec-a0f4-e5e68367ca34"/>
+</subject>
+</UseCaseItem>
+<UseCase id="f15bac8d-7327-11ec-a0f4-e5e68367ca34">
+<name>
+<val>Log</val>
+</name>
+<package>
+<ref refid="e11336ce-7327-11ec-9bb2-e5e68367ca34"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="fd66db81-7327-11ec-a7b5-e5e68367ca34"/>
+</reflist>
+</presentation>
+</UseCase>
+<AssociationItem id="0124bede-7328-11ec-ac72-e5e68367ca34">
+<diagram>
+<ref refid="e9a0d374-7327-11ec-a84d-e5e68367ca34"/>
+</diagram>
+<head_subject>
+<ref refid="01f1216d-7328-11ec-ad52-e5e68367ca34"/>
+</head_subject>
+<horizontal>
+<val>0</val>
+</horizontal>
+<show_direction>
+<val>1</val>
+</show_direction>
+<subject>
+<ref refid="01f0ec83-7328-11ec-9d66-e5e68367ca34"/>
+</subject>
+<tail_subject>
+<ref refid="01f13fd3-7328-11ec-a26b-e5e68367ca34"/>
+</tail_subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 396.0, 495.0)</val>
+</matrix>
+<points>
+<val>[(-115.0, -4.896039603960389), (98.0, -3.3019801980198054)]</val>
+</points>
+<head-connection>
+<ref refid="ebafd9c1-7327-11ec-a67b-e5e68367ca34"/>
+</head-connection>
+<tail-connection>
+<ref refid="fd66db81-7327-11ec-a7b5-e5e68367ca34"/>
+</tail-connection>
+</AssociationItem>
+<Association id="01f0ec83-7328-11ec-9d66-e5e68367ca34">
+<memberEnd>
+<reflist>
+<ref refid="01f1216d-7328-11ec-ad52-e5e68367ca34"/>
+<ref refid="01f13fd3-7328-11ec-a26b-e5e68367ca34"/>
+</reflist>
+</memberEnd>
+<name>
+<val>Initialize &amp; enable logging</val>
+</name>
+<ownedEnd>
+<reflist>
+<ref refid="01f1216d-7328-11ec-ad52-e5e68367ca34"/>
+<ref refid="01f13fd3-7328-11ec-a26b-e5e68367ca34"/>
+</reflist>
+</ownedEnd>
+<package>
+<ref refid="e11336ce-7327-11ec-9bb2-e5e68367ca34"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="0124bede-7328-11ec-ac72-e5e68367ca34"/>
+</reflist>
+</presentation>
+</Association>
+<Property id="01f1216d-7328-11ec-ad52-e5e68367ca34">
+<association>
+<ref refid="01f0ec83-7328-11ec-9d66-e5e68367ca34"/>
+</association>
+<owningAssociation>
+<ref refid="01f0ec83-7328-11ec-9d66-e5e68367ca34"/>
+</owningAssociation>
+<type>
+<ref refid="eeb989e4-6b4c-11ec-8827-b70265b0afec"/>
+</type>
+</Property>
+<Property id="01f13fd3-7328-11ec-a26b-e5e68367ca34">
+<association>
+<ref refid="01f0ec83-7328-11ec-9d66-e5e68367ca34"/>
+</association>
+<owningAssociation>
+<ref refid="01f0ec83-7328-11ec-9d66-e5e68367ca34"/>
+</owningAssociation>
+<type>
+<ref refid="f15bac8d-7327-11ec-a0f4-e5e68367ca34"/>
+</type>
+</Property>
+<Comment id="0fad1dd4-7328-11ec-b883-e5e68367ca34">
+<body>
+<val>Text: User should be able to use logging without pre-configuration needed with following parameters:
+-Output to stdout
+-Filepath to local directory provided
+-Default formatting provided</val>
+</body>
+<presentation>
+<reflist>
+<ref refid="0fad2ba4-7328-11ec-bf7d-e5e68367ca34"/>
+</reflist>
+</presentation>
+</Comment>
+<CommentItem id="0fad2ba4-7328-11ec-bf7d-e5e68367ca34">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 480.0, 301.0)</val>
+</matrix>
+<width>
+<val>482.0</val>
+</width>
+<height>
+<val>103.0</val>
+</height>
+<diagram>
+<ref refid="e9a0d374-7327-11ec-a84d-e5e68367ca34"/>
+</diagram>
+<subject>
+<ref refid="0fad1dd4-7328-11ec-b883-e5e68367ca34"/>
+</subject>
+</CommentItem>
+<UseCase id="51dc38e6-7328-11ec-b304-e5e68367ca34">
+<name>
+<val>DefaultLogCfg</val>
+</name>
+<package>
+<ref refid="e11336ce-7327-11ec-9bb2-e5e68367ca34"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="51dc62d0-7328-11ec-bec9-e5e68367ca34"/>
+</reflist>
+</presentation>
+</UseCase>
+<UseCaseItem id="51dc62d0-7328-11ec-bec9-e5e68367ca34">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 174.0, 48.801980198019805)</val>
+</matrix>
+<width>
+<val>121.0</val>
+</width>
+<height>
+<val>56.39603960396039</val>
+</height>
+<diagram>
+<ref refid="e9a0d374-7327-11ec-a84d-e5e68367ca34"/>
+</diagram>
+<parent>
+<ref refid="fb215ecd-7327-11ec-bd5d-e5e68367ca34"/>
+</parent>
+<subject>
+<ref refid="51dc38e6-7328-11ec-b304-e5e68367ca34"/>
+</subject>
+</UseCaseItem>
+<AssociationItem id="58262dda-7328-11ec-9225-e5e68367ca34">
+<diagram>
+<ref refid="e9a0d374-7327-11ec-a84d-e5e68367ca34"/>
+</diagram>
+<head_subject>
+<ref refid="58c9cff0-7328-11ec-9cae-e5e68367ca34"/>
+</head_subject>
+<horizontal>
+<val>0</val>
+</horizontal>
+<show_direction>
+<val>1</val>
+</show_direction>
+<subject>
+<ref refid="58c9a31d-7328-11ec-ab21-e5e68367ca34"/>
+</subject>
+<tail_subject>
+<ref refid="58c9ed66-7328-11ec-8dbf-e5e68367ca34"/>
+</tail_subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 604.0, 487.0)</val>
+</matrix>
+<points>
+<val>[(3.0, 0.0), (50.0, -1.594059405940584)]</val>
+</points>
+<head-connection>
+<ref refid="fd66db81-7327-11ec-a7b5-e5e68367ca34"/>
+</head-connection>
+<tail-connection>
+<ref refid="51dc62d0-7328-11ec-bec9-e5e68367ca34"/>
+</tail-connection>
+</AssociationItem>
+<Association id="58c9a31d-7328-11ec-ab21-e5e68367ca34">
+<memberEnd>
+<reflist>
+<ref refid="58c9cff0-7328-11ec-9cae-e5e68367ca34"/>
+<ref refid="58c9ed66-7328-11ec-8dbf-e5e68367ca34"/>
+</reflist>
+</memberEnd>
+<name>
+<val>Create</val>
+</name>
+<ownedEnd>
+<reflist>
+<ref refid="58c9cff0-7328-11ec-9cae-e5e68367ca34"/>
+<ref refid="58c9ed66-7328-11ec-8dbf-e5e68367ca34"/>
+</reflist>
+</ownedEnd>
+<package>
+<ref refid="e11336ce-7327-11ec-9bb2-e5e68367ca34"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="58262dda-7328-11ec-9225-e5e68367ca34"/>
+</reflist>
+</presentation>
+</Association>
+<Property id="58c9cff0-7328-11ec-9cae-e5e68367ca34">
+<association>
+<ref refid="58c9a31d-7328-11ec-ab21-e5e68367ca34"/>
+</association>
+<owningAssociation>
+<ref refid="58c9a31d-7328-11ec-ab21-e5e68367ca34"/>
+</owningAssociation>
+<type>
+<ref refid="f15bac8d-7327-11ec-a0f4-e5e68367ca34"/>
+</type>
+</Property>
+<Property id="58c9ed66-7328-11ec-8dbf-e5e68367ca34">
+<association>
+<ref refid="58c9a31d-7328-11ec-ab21-e5e68367ca34"/>
+</association>
+<owningAssociation>
+<ref refid="58c9a31d-7328-11ec-ab21-e5e68367ca34"/>
+</owningAssociation>
+<type>
+<ref refid="51dc38e6-7328-11ec-b304-e5e68367ca34"/>
 </type>
 </Property>
 </gaphor>

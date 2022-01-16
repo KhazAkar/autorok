@@ -19,5 +19,4 @@ class SigrokCLI(SigrokDriver):
 
     def scan_devices(self):
         result = self._gather_devices()
-        print("Following devices were found: {result}")
         return result

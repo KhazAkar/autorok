@@ -1,10 +1,11 @@
 import pytest
-from autorok.common import SigrokInterface, Autorok
+from autorok.autorok import Autorok, SigrokInterface
 from autorok.devices import device_map
 def test_should_scan_for_devices():
-    sigrok_auto = Autorok(iface=SigrokInterface.SIGROK_CLI)
-    device_list = sigrok_auto.scan_devices()
+    sigrok = Autorok(iface = SigrokInterface.SIGROK_CLI)
+    device_list = sigrok.scan_devices()
     assert device_map.get('demo') in device_list 
+    del sigrok
 
 #def test_should_allow_selecting_device():
 #    pass

@@ -38,7 +38,8 @@ class SigrokCLI(SigrokDriver):
         if not isinstance(device, Device):
             raise ValueError("Device class instance should be passed!")
         self._active_device = device
-   
+        return self._active_device
+
     def get_active_device(self):
         return self._active_device
 

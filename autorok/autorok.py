@@ -14,7 +14,7 @@ class Autorok:
        self.driver = iface.value()
        self.device_list = list()
        self.active_device: Device = None
-       self.active_digital_channels = ['']
+       self.active_analog_channels = ['']
        self.active_digital_channels = ['']
 
     def scan_devices(self):

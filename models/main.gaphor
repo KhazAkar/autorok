@@ -619,7 +619,6 @@
 <reflist>
 <ref refid="eeb9c299-6b4c-11ec-b25f-b70265b0afec"/>
 <ref refid="4841c269-6bf0-11ec-9505-9532460bbeb0"/>
-<ref refid="d425106e-716e-11ec-9aab-bde0d80c0086"/>
 <ref refid="0a486673-7971-11ec-a481-91bcf9238a47"/>
 </reflist>
 </presentation>
@@ -897,7 +896,6 @@
 <ref refid="280a2081-6bed-11ec-897a-9532460bbeb0"/>
 <ref refid="0d50fe29-6bf0-11ec-94c4-9532460bbeb0"/>
 <ref refid="71c4b292-6c1a-11ec-b78b-9532460bbeb0"/>
-<ref refid="8894bb9e-6c1a-11ec-acf7-9532460bbeb0"/>
 <ref refid="9dd4b4e1-6c1a-11ec-a573-9532460bbeb0"/>
 <ref refid="b7439f4f-6c1a-11ec-b4d3-9532460bbeb0"/>
 </reflist>
@@ -1308,26 +1306,13 @@
 </Diagram>
 <Package id="71c4b292-6c1a-11ec-b78b-9532460bbeb0">
 <name>
-<val>#3 UseCase - Measure signal</val>
+<val>#3 UseCase - Start measurement</val>
 </name>
-<ownedDiagram>
+<nestedPackage>
 <reflist>
-<ref refid="d0adab0e-716e-11ec-8691-bde0d80c0086"/>
+<ref refid="08db0954-7bd6-11ec-bb42-5dd91adbf6e1"/>
 </reflist>
-</ownedDiagram>
-<package>
-<ref refid="611d4191-6bec-11ec-840c-9532460bbeb0"/>
-</package>
-</Package>
-<Package id="8894bb9e-6c1a-11ec-acf7-9532460bbeb0">
-<name>
-<val>#4 UseCase - Measure multiple signals</val>
-</name>
-<ownedDiagram>
-<reflist>
-<ref refid="db57958b-716e-11ec-9cd3-bde0d80c0086"/>
-</reflist>
-</ownedDiagram>
+</nestedPackage>
 <package>
 <ref refid="611d4191-6bec-11ec-840c-9532460bbeb0"/>
 </package>
@@ -1595,44 +1580,6 @@
 <ref refid="f27f7757-6b4c-11ec-8a50-b70265b0afec"/>
 </type>
 </Property>
-<Diagram id="d0adab0e-716e-11ec-8691-bde0d80c0086">
-<element>
-<ref refid="71c4b292-6c1a-11ec-b78b-9532460bbeb0"/>
-</element>
-<name>
-<val>#3 UseCase - Measure signal diagram</val>
-</name>
-<ownedPresentation>
-<reflist>
-<ref refid="d425106e-716e-11ec-9aab-bde0d80c0086"/>
-</reflist>
-</ownedPresentation>
-</Diagram>
-<ActorItem id="d425106e-716e-11ec-9aab-bde0d80c0086">
-<matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 177.0, 399.0)</val>
-</matrix>
-<width>
-<val>38.0</val>
-</width>
-<height>
-<val>60.0</val>
-</height>
-<diagram>
-<ref refid="d0adab0e-716e-11ec-8691-bde0d80c0086"/>
-</diagram>
-<subject>
-<ref refid="eeb989e4-6b4c-11ec-8827-b70265b0afec"/>
-</subject>
-</ActorItem>
-<Diagram id="db57958b-716e-11ec-9cd3-bde0d80c0086">
-<element>
-<ref refid="8894bb9e-6c1a-11ec-acf7-9532460bbeb0"/>
-</element>
-<name>
-<val>#4 UseCase - Measure multiple signals diagram</val>
-</name>
-</Diagram>
 <Diagram id="dc3b9aac-716e-11ec-84bc-bde0d80c0086">
 <element>
 <ref refid="9dd4b4e1-6c1a-11ec-a573-9532460bbeb0"/>
@@ -1990,4 +1937,12 @@
 <val>[(0.0, 0.0), (-29.0, 69.0)]</val>
 </points>
 </Line>
+<Package id="08db0954-7bd6-11ec-bb42-5dd91adbf6e1">
+<name>
+<val>#3 UseCase - Start measurement package</val>
+</name>
+<package>
+<ref refid="71c4b292-6c1a-11ec-b78b-9532460bbeb0"/>
+</package>
+</Package>
 </gaphor>

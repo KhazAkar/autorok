@@ -8,6 +8,16 @@ class SigrokCLI(SigrokDriver):
     def __init__(self):
         self._active_device: typing.Union[Device, None] = None
         self._detected_devices: typing.Union[typing.Sequence[Device], None] = None
+        self._active_analog_channels = ['']
+        self._active_digital_channels = ['']
+
+    def configure_analog_channels(self, ch: typing.List[str]):
+        self._active_analog_channels = ch
+        return self._active_analog_channels
+    
+    def configure_digital_channels(self, ch: typing.List[str]):
+        self._active_digital_channels = ch
+        return self._active_digital_channels
 
     def _gather_devices(self):
         sigrok_path = shutil.which('sigrok-cli')
@@ -38,8 +48,5 @@ class SigrokCLI(SigrokDriver):
         if not isinstance(device, Device):
             raise ValueError("Device class instance should be passed!")
         self._active_device = device
-        return self._active_device
-
-    def get_active_device(self):
         return self._active_device
 

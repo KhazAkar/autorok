@@ -1,6 +1,7 @@
 import pytest
 from autorok.autorok import Autorok, SigrokInterface
 from autorok.devices import device_map
+
 def test_should_scan_for_devices():
     sigrok = Autorok(iface = SigrokInterface.SIGROK_CLI)
     device_list = sigrok.scan_devices()
@@ -29,7 +30,7 @@ def test_should_allow_reconfiguration_of_active_device():
     sigrok.select_device(device_list[0])
     sigrok.configure_analog_channels(["A0", "A1"])
     sigrok.configure_digital_channels(["D2", "D4"])
-    assert sigrok.active_channels.digital == ['D2', 'D4']
-    assert sigrok.active_channels.analog == ['A0', 'A1']
+    assert sigrok.active_digital_channels == ['D2', 'D4']
+    assert sigrok.active_analog_channels == ['A0', 'A1']
 
 

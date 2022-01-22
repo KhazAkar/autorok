@@ -4,3 +4,4 @@ autorok.code-workspace
 *.swp
 SigrokCLI.log
 autorok.log
+.vscode/settings.json

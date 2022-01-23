@@ -1,4 +1,5 @@
 import enum
+import pathlib
 import typing
 from types import SimpleNamespace
 #from autorok.libsigrok import LibSigrok
@@ -31,3 +32,10 @@ class Autorok:
     
     def configure_digital_channels(self, ch_list: typing.List[str]):
         self.active_digital_channels = self.driver.configure_digital_channels(ch_list)
+    
+    def configure_measurement(self, wait_for_trigger: bool = False, output_to_file: bool = False, file_path: pathlib.Path = ...):
+        self.driver.configure_measurement(wait_for_trigger, output_to_file, file_path)
+
+    def start_sampled_measurement(self, samples: int):
+        result = self.driver.start_sampled_measurement(samples)
+        return result

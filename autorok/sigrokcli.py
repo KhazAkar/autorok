@@ -3,7 +3,6 @@ import subprocess
 import typing
 import datetime
 import shutil
-import os
 from autorok.devices import device_map, Device
 from autorok.common import SigrokDriver
 
@@ -12,24 +11,42 @@ class SigrokCLI(SigrokDriver):
     def __init__(self):
         self._active_device: typing.Union[Device, None] = None
         self._detected_devices: typing.Union[typing.Sequence[Device], None] = None
-        self._active_analog_channels = ['']
-        self._active_digital_channels = ['']
+        self._active_channels = ['']
         self._sigrok_path = shutil.which('sigrok-cli')
+        self._sigrok_measurement_std_args = [self._sigrok_path, ]
         self.measurement_cfg = list()
 
-    def configure_analog_channels(self, ch: typing.List[str]):
-        self._active_analog_channels = [ch] if type(ch) == str else ch
-        return self._active_analog_channels
-
-    def configure_digital_channels(self, ch: typing.List[str]):
-        self._active_digital_channels = [ch] if type(ch) == str else ch
-        return self._active_digital_channels
-
-    def _gather_devices(self):
+    def _check_sigrok_availability(self):
         if self._sigrok_path is None:
-            self._sigrok_path = input("Please provide full/absolute path to sigrok executable: ")
+            self._sigrok_path, self._sigrok_measurement_std_args[0] = input("Please provide full/absolute path to sigrok executable: ")
             if not self._sigrok_path:
                 raise ValueError("No sigrok available, abort.")
+
+    def _handle_active_channels(self):
+        active_ch = [*self._active_channels]
+        if active_ch:
+            self._sigrok_measurement_std_args.append(",".join(active_ch).strip(','))
+        else:
+            self._sigrok_measurement_std_args.append(",".join([*self._active_device.analog_ch, *self._active_device.digital_ch]))
+
+    def _handle_sigrok_args(self):
+        temp = []
+        for elem in self._sigrok_measurement_std_args:
+            if isinstance(elem, typing.List):
+                for sub_elem in elem:
+                    temp.append(sub_elem)
+            else:
+                temp.append(elem)
+        self._sigrok_measurement_std_args.clear()
+        [self._sigrok_measurement_std_args.append(x) for x in temp if x not in self._sigrok_measurement_std_args]
+
+    def show_connected_devices_details(self):
+        self._check_sigrok_availability()
+        sigrok_output = subprocess.run([self._sigrok_path, '--show'])
+        return sigrok_output
+
+    def scan_devices(self):
+        self._check_sigrok_availability() 
         sigrok_output = subprocess.run([self._sigrok_path, '--scan'],
                 universal_newlines=True, capture_output=True)
 
@@ -57,15 +74,17 @@ class SigrokCLI(SigrokDriver):
             return self._detected_devices
         return _parse_devices()
 
-    def scan_devices(self):
-        result = self._gather_devices()
-        return result
-
     def select_device(self, device: Device):
         if not isinstance(device, Device):
             raise ValueError("Device class instance should be passed!")
         self._active_device = device
+        self._sigrok_measurement_std_args.append(["--driver", self._active_device.driver])
         return self._active_device
+
+    def configure_channels(self, ch: typing.List[str]):
+        self._active_channels = [ch] if type(ch) == str else ch
+        self._sigrok_measurement_std_args.append(['--channels', ','.join(self._active_channels)])
+        return self._active_channels
 
     def configure_measurement(self, wait_for_trigger: bool = False, output_to_file: bool = False, file_path: pathlib.Path = ...):
         self.measurement_cfg.clear()
@@ -75,14 +94,20 @@ class SigrokCLI(SigrokDriver):
             curr_time = datetime.datetime.now()
             self.measurement_cfg.append(f'--output-file {file_path}_{curr_time.year}-{curr_time.month}-{curr_time.day}-{curr_time.hour}-{curr_time.minute}-{curr_time.second}.log') 
     
-    def start_sampled_measurement(self, samples: int):
-        args = [self._sigrok_path, "--driver", self._active_device.driver, "--samples", str(samples), '--channels']
-        active_ch = [*self._active_analog_channels, *self._active_digital_channels]
-        if active_ch:
-            args.append(",".join(active_ch).strip(','))
-        else:
-            args.append(",".join([*self._active_device.analog_ch, *self._active_device.digital_ch]))
+    def start_sampled_measurement(self, samples: int, decode: bool = False):
+        self._handle_active_channels() 
         if self.measurement_cfg:
-            args.append(" ".join(self.measurement_cfg))
-        result = subprocess.run(args, universal_newlines=True, capture_output=True)
+            self._sigrok_measurement_std_args.append(" ".join(self.measurement_cfg))
+        self._sigrok_measurement_std_args.append(["--samples", str(samples)])
+        self._handle_sigrok_args()
+        result = subprocess.run(self._sigrok_measurement_std_args, universal_newlines=True, capture_output=True)
+        return result
+
+    def start_framed_measurement(self, frames: int, decode: bool = False):
+        self._handle_active_channels() 
+        if self.measurement_cfg:
+            self._sigrok_measurement_std_args.append(" ".join(self.measurement_cfg))
+        self._sigrok_measurement_std_args.append(["--frames", str(frames)])
+        self._handle_sigrok_args()
+        result = subprocess.run(self._sigrok_measurement_std_args, universal_newlines=True, capture_output=True)
         return result

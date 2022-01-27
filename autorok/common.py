@@ -38,6 +38,10 @@ class OutputType(enum.Enum):
 
 class SigrokDriver(ABC):
     @abstractmethod
+    def show_connected_devices_details(self):
+        pass
+
+    @abstractmethod
     def scan_devices(self):
         pass
 
@@ -46,11 +50,7 @@ class SigrokDriver(ABC):
         pass
 
     @abstractmethod
-    def configure_analog_channels(self, ch: typing.List[str]):
-        pass
-
-    @abstractmethod
-    def configure_digital_channels(self, ch: typing.List[str]):
+    def configure_channels(self, ch: typing.List[str]):
         pass
 
     @abstractmethod
@@ -60,4 +60,8 @@ class SigrokDriver(ABC):
     
     @abstractmethod
     def start_sampled_measurement(self, samples: int=0, decode: bool=False):
+        pass
+
+    @abstractmethod
+    def start_framed_measurement(self, frames: int=0, decode: bool=False):
         pass

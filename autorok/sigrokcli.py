@@ -22,13 +22,6 @@ class SigrokCLI(SigrokDriver):
             if not self._sigrok_path:
                 raise ValueError("No sigrok available, abort.")
 
-    def _handle_active_channels(self):
-        active_ch = [*self._active_channels]
-        if active_ch:
-            self._sigrok_measurement_std_args.append(",".join(active_ch).strip(','))
-        else:
-            self._sigrok_measurement_std_args.append(",".join([*self._active_device.analog_ch, *self._active_device.digital_ch]))
-
     def _handle_sigrok_args(self):
         temp = []
         for elem in self._sigrok_measurement_std_args:
@@ -78,11 +71,13 @@ class SigrokCLI(SigrokDriver):
         if not isinstance(device, Device):
             raise ValueError("Device class instance should be passed!")
         self._active_device = device
-        self._sigrok_measurement_std_args.append(["--driver", self._active_device.driver])
+        self._sigrok_measurement_std_args.append(["--driver", device.driver])
         return self._active_device
 
-    def configure_channels(self, ch: typing.List[str]):
+    def configure_channels(self, ch: typing.List[str], all: bool = False):
         self._active_channels = [ch] if type(ch) == str else ch
+        if all:
+            self._active_channels = [*self._active_device.analog_ch, *self._active_device.digital_ch]
         self._sigrok_measurement_std_args.append(['--channels', ','.join(self._active_channels)])
         return self._active_channels
 
@@ -95,7 +90,6 @@ class SigrokCLI(SigrokDriver):
             self.measurement_cfg.append(f'--output-file {file_path}_{curr_time.year}-{curr_time.month}-{curr_time.day}-{curr_time.hour}-{curr_time.minute}-{curr_time.second}.log') 
     
     def start_sampled_measurement(self, samples: int, decode: bool = False):
-        self._handle_active_channels() 
         if self.measurement_cfg:
             self._sigrok_measurement_std_args.append(" ".join(self.measurement_cfg))
         self._sigrok_measurement_std_args.append(["--samples", str(samples)])
@@ -104,7 +98,6 @@ class SigrokCLI(SigrokDriver):
         return result
 
     def start_framed_measurement(self, frames: int, decode: bool = False):
-        self._handle_active_channels() 
         if self.measurement_cfg:
             self._sigrok_measurement_std_args.append(" ".join(self.measurement_cfg))
         self._sigrok_measurement_std_args.append(["--frames", str(frames)])

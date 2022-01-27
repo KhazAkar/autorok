@@ -1,5 +1,6 @@
 import pytest
 from autorok.autorok import Autorok, SigrokInterface
+from autorok.devices import device_map
 
 @pytest.fixture
 def sigrok():

@@ -13,7 +13,7 @@ class SigrokCLI(SigrokDriver):
         self._detected_devices: typing.Union[typing.Sequence[Device], None] = None
         self._active_channels = ['']
         self._sigrok_path = shutil.which('sigrok-cli')
-        self._sigrok_measurement_std_args = [self._sigrok_path, ]
+        self._sigrok_measurement_std_args = [self._sigrok_path]
         self.measurement_cfg = list()
 
     def _check_sigrok_availability(self):

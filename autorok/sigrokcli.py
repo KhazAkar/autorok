@@ -3,6 +3,7 @@ import subprocess
 import typing
 import datetime
 import shutil
+import os
 from autorok.devices import device_map, Device
 from autorok.common import SigrokDriver
 
@@ -25,6 +26,10 @@ class SigrokCLI(SigrokDriver):
         return self._active_digital_channels
 
     def _gather_devices(self):
+        if self._sigrok_path is None:
+            self._sigrok_path = input("Please provide full/absolute path to sigrok executable: ")
+            if not self._sigrok_path:
+                raise ValueError("No sigrok available, abort.")
         sigrok_output = subprocess.run([self._sigrok_path, '--scan'],
                 universal_newlines=True, capture_output=True)
 

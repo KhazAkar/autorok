@@ -1,7 +1,6 @@
 import enum
 import pathlib
 import typing
-from types import SimpleNamespace
 #from autorok.libsigrok import LibSigrok
 from autorok.sigrokcli import SigrokCLI
 from autorok.devices import Device, device_map

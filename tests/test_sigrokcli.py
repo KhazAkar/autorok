@@ -8,6 +8,7 @@ def sigrok_setup():
     yield sigrok
     del sigrok
 
+
 def test_should_scan_for_devices(sigrok_setup):
     device_list = sigrok_setup.scan_devices()
     assert device_map.get('demo') in device_list
@@ -26,6 +27,7 @@ def test_should_allow_reconfiguration_of_active_device(sigrok_setup):
     sigrok_setup.configure_digital_channels(["D2", "D4"])
     assert sigrok_setup.active_digital_channels == ['D2', 'D4']
     assert sigrok_setup.active_analog_channels == ['A0', 'A1']
+
 
 def test_should_start_sampled_measurement_wo_decode(sigrok_setup):
     device_list = sigrok_setup.scan_devices()

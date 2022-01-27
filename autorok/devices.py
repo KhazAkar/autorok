@@ -10,9 +10,6 @@ class Device:
     digital_ch: typing.Union[typing.Sequence[str], None] = None
     available_options: typing.Union[typing.Sequence[str], None] = None
 
-    def __iter__(self):
-        return iter((self.driver, self.port, self.analog_ch, self.digital_ch, self.available_options))
-
 
 device_map = {
     'demo': Device('demo', "", ['A0', 'A1', 'A2', 'A3', 'A4'],

@@ -6,6 +6,7 @@ root = Path()
 root = f"{root.cwd()}/autorok"
 sys.path.append(root)
 
+# Install import hook
 install_import_hook('autorok')
 
 from autorok import *

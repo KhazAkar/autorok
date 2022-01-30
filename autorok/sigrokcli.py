@@ -15,7 +15,7 @@ class SigrokCLI(SigrokDriver):
         self._active_channels = ['']
         self._sigrok_path = shutil.which('sigrok-cli')
         self._sigrok_measurement_std_args = [self._sigrok_path]
-        self.measurement_cfg = list()
+        self.measurement_cfg = [] 
 
     def _check_sigrok_availability(self):
         """
@@ -88,7 +88,7 @@ class SigrokCLI(SigrokDriver):
         return self._active_device
 
     def configure_channels(self, ch: typing.List[str], all: bool = False):
-        self._active_channels = [ch] if type(ch) == str else ch
+        self._active_channels = [ch] if isinstance(ch, str) else ch
         if all:
             self._active_channels = [
                 *self._active_device.analog_ch, *self._active_device.digital_ch]

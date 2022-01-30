@@ -12,6 +12,7 @@ class SigrokInterface(enum.Enum):
 
 
 class Autorok:
+    """ Main class to use. It's a wrapper which uses LibSigrok or SigrokCLI under the hood, depends on user needs """
     def __init__(self, iface: SigrokInterface):
         self.driver = iface.value()
         self.device_list = list()
@@ -19,9 +20,11 @@ class Autorok:
         self.active_channels = ['']
 
     def show_connected_devices_details(self):
+        """ Shows details for connected devices, like their options etc """
         return self.driver.show_connected_devices_details()
 
     def scan_devices(self):
+        """ Scans for connected devices,parses them as Device class instances and returns list with them """ 
         output = self.driver.scan_devices()
         print(f"Following devices were detected: {output}")
         return output

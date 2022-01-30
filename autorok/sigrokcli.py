@@ -8,6 +8,7 @@ from autorok.common import SigrokDriver
 
 
 class SigrokCLI(SigrokDriver):
+    """ Sigrok driver basing on sigrok-cli Command Line Interface """
     def __init__(self):
         self._active_device: typing.Union[Device, None] = None
         self._detected_devices: typing.Union[typing.Sequence[Device], None] = None
@@ -17,13 +18,22 @@ class SigrokCLI(SigrokDriver):
         self.measurement_cfg = list()
 
     def _check_sigrok_availability(self):
+        """
+        Checks if sigrok is available in the system using shutil.
+        If it cannot find it, asks for path. If path will be empty, it raises ValueError for missing path and deletes
+        instance
+        """
         if self._sigrok_path is None:
             self._sigrok_path, self._sigrok_measurement_std_args[0] = input(
                 "Please provide full/absolute path to sigrok executable: ")
             if not self._sigrok_path:
                 raise ValueError("No sigrok available, abort.")
+                del self
 
     def _handle_sigrok_args(self):
+        """
+        Parser for sigrok arguments - flattens the list basically.
+        """
         temp = []
         for elem in self._sigrok_measurement_std_args:
             if isinstance(elem, typing.List):
@@ -36,6 +46,7 @@ class SigrokCLI(SigrokDriver):
             x) for x in temp if x not in self._sigrok_measurement_std_args]
 
     def show_connected_devices_details(self):
+        """ Uses subprocess to collect details for connected devices """
         self._check_sigrok_availability()
         sigrok_output = subprocess.run([self._sigrok_path, '--show'])
         return sigrok_output

@@ -15,7 +15,8 @@ class SigrokCLI(SigrokDriver):
         self._active_channels = ['']
         self._sigrok_path = shutil.which('sigrok-cli')
         self._sigrok_measurement_std_args = [self._sigrok_path]
-        self.measurement_cfg = [] 
+        self.measurement_cfg = []
+        self._check_sigrok_availability()
 
     def _check_sigrok_availability(self):
         """
@@ -28,23 +29,20 @@ class SigrokCLI(SigrokDriver):
                 "Please provide full/absolute path to sigrok executable: ")
             if not self._sigrok_path:
                 raise ValueError("No sigrok available, abort.")
-                del self
 
     def _handle_sigrok_args(self):
         """
         Parser for sigrok arguments - flattens the list basically.
         """
-        temp = []
-        for elem in self._sigrok_measurement_std_args:
+        temp = self._sigrok_measurement_std_args.copy()
+        self._sigrok_measurement_std_args.clear()
+        for elem in temp:
             if isinstance(elem, typing.List):
                 for sub_elem in elem:
-                    temp.append(sub_elem)
+                    self._sigrok_measurement_std_args.append(sub_elem)
             else:
-                temp.append(elem)
-        self._sigrok_measurement_std_args.clear()
-        [self._sigrok_measurement_std_args.append(
-            x) for x in temp if x not in self._sigrok_measurement_std_args]
-
+                self._sigrok_measurement_std_args.append(elem)
+        
     def show_connected_devices_details(self):
         """ Uses subprocess to collect details for connected devices """
         self._check_sigrok_availability()

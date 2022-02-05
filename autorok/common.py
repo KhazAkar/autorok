@@ -1,7 +1,8 @@
-import pathlib
 import enum
+import pathlib
 import typing
 from abc import ABC, abstractmethod
+
 from autorok.devices import Device
 
 
@@ -53,7 +54,7 @@ class SigrokDriver(ABC):
         pass
 
     @abstractmethod
-    def configure_channels(self, ch: typing.List[str], all: bool = False):
+    def configure_channels(self, ch: typing.List[str], all_ch: bool = False):
         pass
 
     @abstractmethod

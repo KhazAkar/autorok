@@ -1,13 +1,16 @@
+import os
+import pathlib
+
 import pytest
+
 from autorok.autorok import Autorok, SigrokInterface
 from autorok.devices import device_map
 
-
 @pytest.fixture
 def sigrok():
-    sigrok = Autorok(iface=SigrokInterface.SIGROK_CLI)
-    yield sigrok
-    del sigrok
+    sigrok_obj = Autorok(iface=SigrokInterface.SIGROK_CLI)
+    yield sigrok_obj
+    del sigrok_obj
 
 
 def test_should_scan_for_devices(sigrok):
@@ -47,3 +50,13 @@ def test_should_start_framed_measurement_wo_decode(sigrok):
     sigrok.configure_channels(['D1', 'A2'])
     result = sigrok.start_framed_measurement(frames=2)
     assert result.returncode == 0 and result.stdout != ''
+
+
+def test_should_record_result_to_file_from_measurement(sigrok):
+    device_list = sigrok.scan_devices()
+    sigrok.select_device(device_list[0])
+    sigrok.configure_channels(['D0'])
+    file = pathlib.Path('./test_measurement.log')
+    sigrok.configure_measurement(output_to_file=True, file_path=file)
+    sigrok.start_sampled_measurement(2)
+    assert os.path.isfile(file)

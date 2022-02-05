@@ -126,7 +126,7 @@ class SigrokCLI(SigrokDriver):
             self.measurement_cfg.append(
                 f'--output-file {file_path}_{curr_time.year}-{curr_time.month}-{curr_time.day}-{curr_time.hour}-{curr_time.minute}-{curr_time.second}.log')
 
-    def start_sampled_measurement(self, samples: int):
+    def start_sampled_measurement(self, samples: int, decode: bool = False):
         if self.measurement_cfg:
             self._sigrok_measurement_std_args.append(
                 " ".join(self.measurement_cfg))
@@ -136,7 +136,7 @@ class SigrokCLI(SigrokDriver):
             self._sigrok_measurement_std_args, universal_newlines=True, capture_output=True, check=True)
         return result
 
-    def start_framed_measurement(self, frames: int):
+    def start_framed_measurement(self, frames: int, decode: bool = False):
         if self.measurement_cfg:
             self._sigrok_measurement_std_args.append(
                 " ".join(self.measurement_cfg))

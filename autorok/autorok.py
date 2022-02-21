@@ -3,7 +3,6 @@ import pathlib
 import typing
 
 from autorok.devices import Device
-#from autorok.libsigrok import LibSigrok
 from autorok.sigrokcli import SigrokCLI
 
 
@@ -17,7 +16,6 @@ class SigrokInterface(enum.Enum):
         Selectable SigrokDriver to use
     """
     SIGROK_CLI = SigrokCLI
-    #LIB_SIGROK = LibSigrok
 
 
 class Autorok:
@@ -56,8 +54,18 @@ class Autorok:
         self.active_device = self.driver.select_device(device)
         return self.active_device
 
-    def configure_channels(self, ch_list: typing.List[str]):
-        self.active_channels = self.driver.configure_channels(ch_list)
+    def configure_channels(self, ch_list: typing.List[str], all_ch: bool = False):
+        """
+        Selects which cnannels should be used for measurement
+
+        Parameters
+        ----------
+        ch_list : List[str]
+            List of channels to be used for measurements
+        all_ch : bool
+            If true, then all channels are used, by default False
+        """
+        self.active_channels = self.driver.configure_channels(ch_list, all_ch)
 
     def configure_measurement(self, wait_for_trigger: bool = False, output_to_file: bool = False, file_path: pathlib.Path = ...):
         self.driver.configure_measurement(

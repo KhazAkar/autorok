@@ -63,9 +63,9 @@ class SigrokDriver(ABC):
         pass
 
     @abstractmethod
-    def start_sampled_measurement(self, samples: int = 0, decode: bool = False):
+    def start_sampled_measurement(self, samples: int, decode: bool = False):
         pass
 
     @abstractmethod
-    def start_framed_measurement(self, frames: int = 0, decode: bool = False):
+    def start_framed_measurement(self, frames: int, decode: bool = False):
         pass

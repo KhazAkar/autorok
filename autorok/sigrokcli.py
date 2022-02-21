@@ -16,7 +16,7 @@ class SigrokCLI(SigrokDriver):
         self._detected_devices: typing.Union[typing.Sequence[Device], None] = None
         self._active_channels = ['']
         self._sigrok_path = shutil.which('sigrok-cli')
-        self._sigrok_measurement_std_args = [self._sigrok_path]
+        self._sigrok_meas_args = [self._sigrok_path]
         self.measurement_cfg = []
         self._check_sigrok_availability()
 
@@ -30,7 +30,7 @@ class SigrokCLI(SigrokDriver):
             No sigrok available - no driver for ya :)
         """
         if self._sigrok_path is None:
-            self._sigrok_path, self._sigrok_measurement_std_args[0] = input(
+            self._sigrok_path, self._sigrok_meas_args[0] = input(
                 "Please provide full/absolute path to sigrok executable: ")
             if not self._sigrok_path:
                 raise ValueError("No sigrok available, abort.")
@@ -39,14 +39,14 @@ class SigrokCLI(SigrokDriver):
         """
         Parser for sigrok arguments - flattens the list basically.
         """
-        temp = self._sigrok_measurement_std_args.copy()
-        self._sigrok_measurement_std_args.clear()
+        temp = self._sigrok_meas_args.copy()
+        self._sigrok_meas_args.clear()
         for elem in temp:
             if isinstance(elem, typing.List):
                 for sub_elem in elem:
-                    self._sigrok_measurement_std_args.append(sub_elem)
+                    self._sigrok_meas_args.append(sub_elem)
             else:
-                self._sigrok_measurement_std_args.append(elem)
+                self._sigrok_meas_args.append(elem)
 
     def show_connected_devices_details(self):
         """ Uses subprocess to collect details for connected devices """
@@ -105,7 +105,7 @@ class SigrokCLI(SigrokDriver):
         if not isinstance(device, Device):
             raise ValueError("Device class instance should be passed!")
         self._active_device = device
-        self._sigrok_measurement_std_args.append(["--driver", device.driver])
+        self._sigrok_meas_args.append(["--driver", device.driver])
         return self._active_device
 
     def configure_channels(self, ch: typing.List[str], all_ch: bool = False):
@@ -113,7 +113,7 @@ class SigrokCLI(SigrokDriver):
         if all_ch:
             self._active_channels = [
                 *self._active_device.analog_ch, *self._active_device.digital_ch]
-        self._sigrok_measurement_std_args.append(
+        self._sigrok_meas_args.append(
             ['--channels', ','.join(self._active_channels)])
         return self._active_channels
 
@@ -124,24 +124,40 @@ class SigrokCLI(SigrokDriver):
         if output_to_file:
             curr_time = datetime.datetime.now()
             self.measurement_cfg.append(
-                f'--output-file {file_path}_{curr_time.year}-{curr_time.month}-{curr_time.day}-{curr_time.hour}-{curr_time.minute}-{curr_time.second}.log')
+                f"--output-file {file_path}_{curr_time.year}-{curr_time.month}-{curr_time.day}-{curr_time.hour}-{curr_time.minute}-{curr_time.second}.log")
 
     def start_sampled_measurement(self, samples: int, decode: bool = False):
+        """
+        Starts measurement based on number of samples to gather from device
+        Parameters
+        ----------
+
+        samples : int
+            How many samples to gather from measurement device
+        decode : bool
+            default: `` False``
+            If true, decoding of measured signals will be performed
+
+        Returns
+        -------
+        subprocess.CompletedProcess
+            result of measurement with extra metadata
+
+        """
         if self.measurement_cfg:
-            self._sigrok_measurement_std_args.append(
-                " ".join(self.measurement_cfg))
-        self._sigrok_measurement_std_args.append(["--samples", str(samples)])
+            self._sigrok_meas_args.append(" ".join(self.measurement_cfg))
+        self._sigrok_meas_args.append(["--samples", str(samples)])
         self._handle_sigrok_args()
         result = subprocess.run(
-            self._sigrok_measurement_std_args, universal_newlines=True, capture_output=True, check=True)
+            self._sigrok_meas_args, universal_newlines=True, capture_output=True, check=True)
         return result
 
     def start_framed_measurement(self, frames: int, decode: bool = False):
         if self.measurement_cfg:
-            self._sigrok_measurement_std_args.append(
+            self._sigrok_meas_args.append(
                 " ".join(self.measurement_cfg))
-        self._sigrok_measurement_std_args.append(["--frames", str(frames)])
+        self._sigrok_meas_args.append(["--frames", str(frames)])
         self._handle_sigrok_args()
         result = subprocess.run(
-            self._sigrok_measurement_std_args, universal_newlines=True, capture_output=True, check=True)
+            self._sigrok_meas_args, universal_newlines=True, capture_output=True, check=True)
         return result

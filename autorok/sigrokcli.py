@@ -29,7 +29,7 @@ class SigrokCLI(SigrokDriver):
             No sigrok available - no driver for ya :)
         """
         if self._sigrok_path is None:
-            self._sigrok_path, self._sigrok_meas_args[0] = input(
+            self._sigrok_path = self._sigrok_meas_args[0] = input(
                 "Please provide full/absolute path to sigrok executable: ")
             if not self._sigrok_path:
                 raise ValueError("No sigrok available, abort.")

@@ -1,10 +1,10 @@
 # Autorok
 
 ## Brief overview
-Autorok is a python wrapper around sigrok-cli and libsigrok/libsigrok4DSL, which provides all common functionalit
+Autorok is a python wrapper around sigrok-cli and libsigrok/libsigrok4DSL, which provides all common functionalities
 from those binaries/executables.
 
-Allows for easier sigrok automation using Python language.
+Allows for easier sigrok automation using Python language, for tasks such as HW testing.
 
 ## Supported interfaces
 Currently supported interfaces are

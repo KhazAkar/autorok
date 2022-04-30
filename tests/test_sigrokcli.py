@@ -57,7 +57,7 @@ def test_should_record_result_to_file_from_measurement(sigrok):
     device_list = sigrok.scan_devices()
     sigrok.select_device(device_list[0])
     sigrok.configure_channels(['D0'])
-    file = pathlib.Path('test_measurement')
+    file = pathlib.Path('test_measurement_22.22.22.log')
     sigrok.configure_measurement(output_to_file=True, file_path=file)
     sigrok.start_sampled_measurement(2)
     assert os.path.isfile(file)

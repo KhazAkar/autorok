@@ -58,7 +58,9 @@ class SigrokDriver(ABC):
         pass
 
     @abstractmethod
-    def configure_measurement(self, wait_for_trigger: bool = False, output_to_file: bool = False,
+    def configure_measurement(self,
+                              wait_for_trigger: bool = False,
+                              output_to_file: bool = False,
                               file_path: pathlib.Path = pathlib.Path('.')):
         pass
 

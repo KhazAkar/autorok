@@ -1,9 +1,15 @@
 from dataclasses import dataclass
 import typing
 
+__all__ = ['Device']
+
 
 @dataclass(repr=False)
 class Device:
+    """
+    Dataclass containing metadata about measurement device, used in device_map dict, which indicates currently supported
+    measurement devices.
+    """
     driver: str
     port: str = ""
     analog_ch: typing.Union[typing.Sequence[str], None] = None

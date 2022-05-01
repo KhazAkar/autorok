@@ -22,5 +22,7 @@ device_map = {
     Device('dreamsourcelab-dslogic', "", None, [
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
         '13', '14', '15'
-    ])
+    ]),
+    'brymen-bmXXX-dmm':
+    Device('serial-dmm', "", [""], [""])
 }

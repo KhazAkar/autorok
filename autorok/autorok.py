@@ -75,7 +75,8 @@ class Autorok:
                               file_type: OutputType = OutputType.CSV,
                               file_path: pathlib.Path = ...):
         """
-        Configures measurement. Currently allows for binary output to file with path + waiting for trigger to happen
+        Configures measurement. Currently allows for binary output to file with path and type,
+        plus waiting for trigger to happen
 
         Parameters
         ----------
@@ -83,6 +84,8 @@ class Autorok:
             Do you want to wait until trigger condition is here? False by default
         output_to_file: bool
             Do you want to record measurement to file? False by default
+        file_type: OutputType
+            In what format do you want to get your results? CSV by default
         file_path: pathlib.Path
             Contains path to the recording file, relative to your $PWD
         """

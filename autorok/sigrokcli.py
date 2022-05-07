@@ -3,7 +3,7 @@ import shutil
 import subprocess
 import typing
 
-from autorok.common import SigrokDriver
+from autorok.common import SigrokDriver, OutputType
 from autorok.devices import Device, device_map
 
 
@@ -127,12 +127,15 @@ class SigrokCLI(SigrokDriver):
     def configure_measurement(self,
                               wait_for_trigger: bool = False,
                               output_to_file: bool = False,
+                              file_type: OutputType = OutputType.CSV,
                               file_path: pathlib.Path = ...):
         self.measurement_cfg.clear()
         if wait_for_trigger:
             self.measurement_cfg.append('--wait-trigger')
         if output_to_file:
             self.measurement_cfg.append(["--output-file", f"{file_path}"])
+            self.measurement_cfg.append(
+                ["--output-format", f"{file_type.value}"])
 
     def start_sampled_measurement(self, samples: int, decode: bool = False):
         """

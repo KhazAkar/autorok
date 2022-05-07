@@ -2,6 +2,7 @@ import enum
 import pathlib
 import typing
 
+from autorok.common import OutputType
 from autorok.devices import Device
 from autorok.sigrokcli import SigrokCLI
 
@@ -71,6 +72,7 @@ class Autorok:
     def configure_measurement(self,
                               wait_for_trigger: bool = False,
                               output_to_file: bool = False,
+                              file_type: OutputType = OutputType.CSV,
                               file_path: pathlib.Path = ...):
         """
         Configures measurement. Currently allows for binary output to file with path + waiting for trigger to happen
@@ -85,7 +87,7 @@ class Autorok:
             Contains path to the recording file, relative to your $PWD
         """
         self.driver.configure_measurement(wait_for_trigger, output_to_file,
-                                          file_path)
+                                          file_type, file_path)
 
     def start_sampled_measurement(self, samples: int, decode: bool = False):
         """

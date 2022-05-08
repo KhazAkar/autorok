@@ -114,8 +114,11 @@ class SigrokCLI(SigrokDriver):
         self._sigrok_meas_args.append(["--driver", device.driver])
         return self._active_device
 
-    def configure_channels(self, ch: typing.List[str], all_ch: bool = False):
-        self._active_channels = [ch] if isinstance(ch, str) else ch
+    def configure_channels(self,
+                           ch_list: typing.List[str],
+                           all_ch: bool = False):
+        self._active_channels = [ch_list] if isinstance(ch_list,
+                                                        str) else ch_list
         if all_ch:
             self._active_channels = [
                 *self._active_device.analog_ch, *self._active_device.digital_ch

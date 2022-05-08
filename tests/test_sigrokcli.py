@@ -3,6 +3,7 @@ import pathlib
 
 import pytest
 
+from autorok.common import OutputType
 from autorok.autorok import Autorok, SigrokInterface
 from autorok.devices import device_map
 
@@ -59,5 +60,18 @@ def test_should_record_result_to_file_from_measurement(sigrok):
     sigrok.configure_channels(['D0'])
     file = pathlib.Path('test_measurement_22.22.22.log')
     sigrok.configure_measurement(output_to_file=True, file_path=file)
+    sigrok.start_sampled_measurement(2)
+    assert os.path.isfile(file)
+
+
+def test_should_record_result_to_file_from_measurement_with_selected_output_file_type(
+        sigrok):
+    device_list = sigrok.scan_devices()
+    sigrok.select_device(device_list[0])
+    sigrok.configure_channels(['D0', 'D1'])
+    file = pathlib.Path('test_measurement_33.33.34.vcd')
+    sigrok.configure_measurement(output_to_file=True,
+                                 file_type=OutputType.VALUE_CHANGE_DUMP,
+                                 file_path=file)
     sigrok.start_sampled_measurement(2)
     assert os.path.isfile(file)

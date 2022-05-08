@@ -20,7 +20,17 @@ class SigrokInterface(enum.Enum):
 
 
 class Autorok:
-    """ Main class to use. It's a wrapper which uses LibSigrok or SigrokCLI under the hood, depends on user needs """
+    """
+    Main class. It's an interface to use this project at all.
+    Allows for unified usage of available 'backends', which are currently 3, but 1 in working state.
+
+    They are as follows:
+        sigrok-cli (Working, WIP)
+
+        libsigrok (WIP)
+
+        libsigrok4DSL (for DreamSourceLabs devices not supported by mainline libsigrok, WIP)
+    """
     def __init__(self, iface: SigrokInterface):
         self.driver = iface.value()
         self.device_list = []
@@ -67,7 +77,8 @@ class Autorok:
         all_ch : bool
             If true, then all channels are used, by default False
         """
-        self.active_channels = self.driver.configure_channels(ch_list, all_ch)
+        self.active_channels = self.driver.configure_channels(ch_list=ch_list,
+                                                              all_ch=all_ch)
 
     def configure_measurement(self,
                               wait_for_trigger: bool = False,
@@ -81,7 +92,7 @@ class Autorok:
         Parameters
         ----------
         wait_for_trigger: bool
-            Do you want to wait until trigger condition is here? False by default
+            Do you want to wait until trigger condition is met? False by default
         output_to_file: bool
             Do you want to record measurement to file? False by default
         file_type: OutputType
@@ -89,8 +100,10 @@ class Autorok:
         file_path: pathlib.Path
             Contains path to the recording file, relative to your $PWD
         """
-        self.driver.configure_measurement(wait_for_trigger, output_to_file,
-                                          file_type, file_path)
+        self.driver.configure_measurement(wait_for_trigger=wait_for_trigger,
+                                          output_to_file=output_to_file,
+                                          file_type=file_type,
+                                          file_path=file_path)
 
     def start_sampled_measurement(self, samples: int, decode: bool = False):
         """
@@ -128,5 +141,6 @@ class Autorok:
         subprocess.CompletedProcess
             Result of measurement with extra metadata
         """
-        result = self.driver.start_framed_measurement(frames, decode)
+        result = self.driver.start_framed_measurement(frames=frames,
+                                                      decode=decode)
         return result

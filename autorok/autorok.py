@@ -61,7 +61,7 @@ class Autorok:
         Device
             Currently selected device
         """
-        self.active_device = self.driver.select_device(device)
+        self.active_device = self.driver.select_device(device=device)
         return self.active_device
 
     def configure_channels(self,

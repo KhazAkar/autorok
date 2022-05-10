@@ -54,7 +54,9 @@ class SigrokDriver(ABC):
         pass
 
     @abstractmethod
-    def configure_channels(self, ch: typing.List[str], all_ch: bool = False):
+    def configure_channels(self,
+                           ch_list: typing.List[str],
+                           all_ch: bool = False):
         pass
 
     @abstractmethod

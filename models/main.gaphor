@@ -2464,7 +2464,7 @@
 </Diagram>
 <Package id="b43345c0-d01c-11ec-afbc-5fe4f3f0877c">
 <name>
-<val>#7 UseCase - Get additional device info</val>
+<val>#7 UseCase - Get additional device config options</val>
 </name>
 <ownedDiagram>
 <reflist>
@@ -2489,7 +2489,7 @@
 <ref refid="b43345c0-d01c-11ec-afbc-5fe4f3f0877c"/>
 </element>
 <name>
-<val>#7 UseCase - Get additional device info diagram</val>
+<val>#7 UseCase - Get additional device config options diagram</val>
 </name>
 <ownedPresentation>
 <reflist>
@@ -2502,6 +2502,7 @@
 <ref refid="59bd5b31-d01d-11ec-90a9-5fe4f3f0877c"/>
 <ref refid="55b64c5f-d01d-11ec-a221-5fe4f3f0877c"/>
 <ref refid="80159d89-d01d-11ec-b462-5fe4f3f0877c"/>
+<ref refid="d00fb58b-d168-11ec-8a86-97fb53bc446d"/>
 </reflist>
 </ownedPresentation>
 </Diagram>
@@ -2538,7 +2539,7 @@
 </Box>
 <Box id="0e17eba4-d01d-11ec-a5c6-5fe4f3f0877c">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 529.0, 276.0)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 520.0, 276.0)</val>
 </matrix>
 <width>
 <val>199.0</val>
@@ -2563,7 +2564,7 @@ like selecting active device etc</val>
 </Comment>
 <CommentItem id="10463d3f-d01d-11ec-9e9a-5fe4f3f0877c">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 605.0, 291.0)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 554.0, 288.0)</val>
 </matrix>
 <width>
 <val>131.0</val>
@@ -2580,7 +2581,7 @@ like selecting active device etc</val>
 </CommentItem>
 <UseCaseItem id="2472af49-d01d-11ec-8077-5fe4f3f0877c">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 552.0, 448.5)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 530.5, 448.5)</val>
 </matrix>
 <width>
 <val>184.0</val>
@@ -2597,7 +2598,7 @@ like selecting active device etc</val>
 </UseCaseItem>
 <UseCaseItem id="4b18b8f2-d01d-11ec-b6c1-5fe4f3f0877c">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 566.0, 378.0)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 554.0, 368.5)</val>
 </matrix>
 <width>
 <val>137.0</val>
@@ -2623,7 +2624,7 @@ like selecting active device etc</val>
 <val>(1.0, 0.0, 0.0, 1.0, 638.0, 437.0)</val>
 </matrix>
 <points>
-<val>[(0.0, 0.0), (-3.5, 11.5)]</val>
+<val>[(-15.5, -9.5), (-3.5, 11.5)]</val>
 </points>
 </Line>
 <UseCase id="59bd3768-d01d-11ec-b900-5fe4f3f0877c">
@@ -2735,4 +2736,18 @@ like selecting active device etc</val>
 <ref refid="59bd3768-d01d-11ec-b900-5fe4f3f0877c"/>
 </type>
 </Property>
+<Line id="d00fb58b-d168-11ec-8a86-97fb53bc446d">
+<diagram>
+<ref refid="eefd4089-d01c-11ec-bd44-5fe4f3f0877c"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 519.0, 517.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (-50.0, 16.0)]</val>
+</points>
+</Line>
 </gaphor>

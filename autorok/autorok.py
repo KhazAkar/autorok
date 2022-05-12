@@ -31,6 +31,7 @@ class Autorok:
 
         libsigrok4DSL (for DreamSourceLabs devices not supported by mainline libsigrok, WIP)
     """
+
     def __init__(self, iface: SigrokInterface):
         self.driver = iface.value()
         self.device_list = []

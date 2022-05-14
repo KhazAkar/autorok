@@ -63,7 +63,8 @@ class SigrokDriver(ABC):
     def configure_measurement(self,
                               wait_for_trigger: bool = False,
                               output_to_file: bool = False,
-                              file_path: pathlib.Path = pathlib.Path('.')):
+                              file_type: OutputType = OutputType.CSV,
+                              file_path: pathlib.Path = ...):
         pass
 
     @abstractmethod

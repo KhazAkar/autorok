@@ -39,8 +39,35 @@ class SigrokCLI(SigrokDriver):
         """ Uses subprocess to collect details for connected devices """
         self._check_sigrok_availability()
         sigrok_output = subprocess.run([self._sigrok_path, '--show'],
-                                       check=True)
+                                       universal_newlines = True,
+                                       check = True)
         return sigrok_output
+
+    def _parse_scan_results(self, subprocess_output):
+        output_split = subprocess_output.stdout.split('\n')
+        output_split.pop(-1)  # Remove trailing newline char
+        output_split.pop(0)  # Remove first string
+        # Gather first part of string, which contains driver
+        drivers_strings = [
+            driver[:driver.index(' ')] for driver in output_split
+        ]
+        ports = []
+        for idx, driver in enumerate(drivers_strings):
+            if ':' in driver:
+                # create tuple driver,port
+                ports.append((driver[:driver.index(':')],
+                              driver[driver.index(':') + 1:]))
+                # strip :conn from driver name after gathering port and clear out unwanted \n char
+                driver = driver[:driver.index(':')]
+                drivers_strings[idx] = driver
+        for pair in ports:
+            # assign gathered port to Device instance
+            device_map[pair[0]].port = pair[1]
+        self._detected_devices = [
+            device_map.get(driver, Device('UNKNOWN'))
+            for driver in drivers_strings
+        ]
+        return self._detected_devices
 
     def scan_devices(self):
         self._check_sigrok_availability()
@@ -49,33 +76,7 @@ class SigrokCLI(SigrokDriver):
                                        capture_output=True,
                                        check=True)
 
-        def _parse_devices():
-            output_split = sigrok_output.stdout.split('\n')
-            output_split.pop(-1)  # Remove trailing newline char
-            output_split.pop(0)  # Remove first string
-            # Gather first part of string, which contains driver
-            drivers_strings = [
-                driver[:driver.index(' ')] for driver in output_split
-            ]
-            ports = []
-            for idx, driver in enumerate(drivers_strings):
-                if ':' in driver:
-                    # create tuple driver,port
-                    ports.append((driver[:driver.index(':')],
-                                  driver[driver.index(':') + 1:]))
-                    # strip :conn from driver name after gathering port and clear out unwanted \n char
-                    driver = driver[:driver.index(':')]
-                    drivers_strings[idx] = driver
-            for pair in ports:
-                # assign gathered port to Device instance
-                device_map[pair[0]].port = pair[1]
-            self._detected_devices = [
-                device_map.get(driver, Device('UNKNOWN'))
-                for driver in drivers_strings
-            ]
-            return self._detected_devices
-
-        return _parse_devices()
+        return self._parse_scan_results(sigrok_output)
 
     def select_device(self, device: Device):
         """

@@ -73,3 +73,7 @@ class SigrokDriver(ABC):
     @abstractmethod
     def start_framed_measurement(self, frames: int, decode: bool = False):
         pass
+
+    @abstractmethod
+    def start_timed_measurement(self, sampling_time: int, decode: bool = False):
+        pass

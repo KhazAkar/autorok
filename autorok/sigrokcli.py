@@ -9,6 +9,7 @@ from autorok.devices import Device, device_map
 
 class SigrokCLI(SigrokDriver):
     """ Sigrok driver basing on sigrok-cli Command Line Interface """
+
     def __init__(self):
         self._active_device: typing.Union[Device, None] = None
         self._detected_devices: typing.Union[typing.Sequence[Device],
@@ -33,19 +34,6 @@ class SigrokCLI(SigrokDriver):
                 "Please provide full/absolute path to sigrok executable: ")
             if not self._sigrok_path:
                 raise ValueError("No sigrok available, abort.")
-
-    def _handle_sigrok_args(self):
-        """
-        Parser for sigrok arguments - flattens the list basically.
-        """
-        temp = self._sigrok_meas_args.copy()
-        self._sigrok_meas_args.clear()
-        for elem in temp:
-            if isinstance(elem, list):
-                for inner_elem in elem:
-                    self._sigrok_meas_args.append(inner_elem)
-            else:
-                self._sigrok_meas_args.append(elem)
 
     def show_connected_devices_details(self):
         """ Uses subprocess to collect details for connected devices """
@@ -111,7 +99,8 @@ class SigrokCLI(SigrokDriver):
         if not isinstance(device, Device):
             raise ValueError("Device class instance should be passed!")
         self._active_device = device
-        self._sigrok_meas_args.append(["--driver", device.driver])
+        for elem in ["--driver", device.driver]:
+            self._sigrok_meas_args.append(elem)
         return self._active_device
 
     def configure_channels(self,
@@ -123,8 +112,9 @@ class SigrokCLI(SigrokDriver):
             self._active_channels = [
                 *self._active_device.analog_ch, *self._active_device.digital_ch
             ]
-        self._sigrok_meas_args.append(
-            ['--channels', ','.join(self._active_channels)])
+        for elem in ['--channels', ','.join(self._active_channels)]:
+            self._sigrok_meas_args.append(elem)
+
         return self._active_channels
 
     def configure_measurement(self,
@@ -136,9 +126,10 @@ class SigrokCLI(SigrokDriver):
         if wait_for_trigger:
             self.measurement_cfg.append('--wait-trigger')
         if output_to_file:
-            self.measurement_cfg.append(["--output-file", f"{file_path}"])
-            self.measurement_cfg.append(
-                ["--output-format", f"{file_type.value}"])
+            for elem in ["--output-file", f"{file_path}", "--output-format", f"{file_type.value}"]:
+                self.measurement_cfg.append(elem)
+        for elem in self.measurement_cfg:
+            self._sigrok_meas_args.append(elem)
 
     def start_sampled_measurement(self, samples: int, decode: bool = False):
         """
@@ -158,11 +149,8 @@ class SigrokCLI(SigrokDriver):
             Result of measurement with extra metadata
 
         """
-        if self.measurement_cfg:
-            for elem in self.measurement_cfg:
-                self._sigrok_meas_args.append(elem)
-        self._sigrok_meas_args.append(["--samples", str(samples)])
-        self._handle_sigrok_args()
+        for elem in ["--samples", str(samples)]:
+            self._sigrok_meas_args.append(elem)
         result = subprocess.run(self._sigrok_meas_args,
                                 universal_newlines=True,
                                 capture_output=True,
@@ -170,10 +158,17 @@ class SigrokCLI(SigrokDriver):
         return result
 
     def start_framed_measurement(self, frames: int, decode: bool = False):
-        if self.measurement_cfg:
-            self._sigrok_meas_args.append(" ".join(self.measurement_cfg))
-        self._sigrok_meas_args.append(["--frames", str(frames)])
-        self._handle_sigrok_args()
+        for elem in ["--frames", str(frames)]:
+            self._sigrok_meas_args.append(elem)
+        result = subprocess.run(self._sigrok_meas_args,
+                                universal_newlines=True,
+                                capture_output=True,
+                                check=True)
+        return result
+
+    def start_timed_measurement(self, sampling_time: int, decode: bool = False):
+        for elem in ["--time", str(sampling_time)]:
+            self._sigrok_meas_args.append(elem)
         result = subprocess.run(self._sigrok_meas_args,
                                 universal_newlines=True,
                                 capture_output=True,

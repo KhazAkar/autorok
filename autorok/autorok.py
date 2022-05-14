@@ -101,10 +101,10 @@ class Autorok:
         file_path: pathlib.Path
             Contains path to the recording file, relative to your $PWD
         """
-        self.driver.configure_measurement(wait_for_trigger=wait_for_trigger,
-                                          output_to_file=output_to_file,
-                                          file_type=file_type,
-                                          file_path=file_path)
+        self.driver.configure_measurement(wait_for_trigger = wait_for_trigger,
+                                          output_to_file = output_to_file,
+                                          file_type = file_type,
+                                          file_path = file_path)
 
     def start_sampled_measurement(self, samples: int, decode: bool = False):
         """
@@ -122,8 +122,7 @@ class Autorok:
         subprocess.CompletedProcess
             Result of measurement with extra metadata
         """
-        result = self.driver.start_sampled_measurement(samples=samples,
-                                                       decode=decode)
+        result = self.driver.start_sampled_measurement(samples = samples, decode = decode)
         return result
 
     def start_framed_measurement(self, frames: int, decode: bool = False):
@@ -142,6 +141,9 @@ class Autorok:
         subprocess.CompletedProcess
             Result of measurement with extra metadata
         """
-        result = self.driver.start_framed_measurement(frames=frames,
-                                                      decode=decode)
+        result = self.driver.start_framed_measurement(frames = frames, decode = decode)
+        return result
+
+    def start_timed_measurement(self, sampling_time: int, decode: bool = False):
+        result = self.driver.start_timed_measurement(sampling_time = sampling_time, decode = decode)
         return result

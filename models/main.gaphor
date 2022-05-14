@@ -1988,6 +1988,7 @@
 <ref refid="c2fc7634-c993-11ec-b5cb-57a536c35188"/>
 <ref refid="0bb14cd4-c994-11ec-abcb-57a536c35188"/>
 <ref refid="23979d3b-c994-11ec-a559-57a536c35188"/>
+<ref refid="4e6cf3a3-d38d-11ec-b002-d7ff6da4bf3c"/>
 <ref refid="16062617-c994-11ec-953d-57a536c35188"/>
 <ref refid="400dcf45-c994-11ec-9b60-57a536c35188"/>
 </reflist>
@@ -2750,4 +2751,34 @@ like selecting active device etc</val>
 <val>[(0.0, 0.0), (-50.0, 16.0)]</val>
 </points>
 </Line>
+<Comment id="4e6cd0b3-d38d-11ec-a429-d7ff6da4bf3c">
+<body>
+<val>There are 3 types of measurement:
+- sample-based
+- time-based
+- frame-based</val>
+</body>
+<presentation>
+<reflist>
+<ref refid="4e6cf3a3-d38d-11ec-b002-d7ff6da4bf3c"/>
+</reflist>
+</presentation>
+</Comment>
+<CommentItem id="4e6cf3a3-d38d-11ec-b002-d7ff6da4bf3c">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 101.0, 352.0)</val>
+</matrix>
+<width>
+<val>241.0</val>
+</width>
+<height>
+<val>95.0</val>
+</height>
+<diagram>
+<ref refid="9f786d6d-c993-11ec-a360-57a536c35188"/>
+</diagram>
+<subject>
+<ref refid="4e6cd0b3-d38d-11ec-a429-d7ff6da4bf3c"/>
+</subject>
+</CommentItem>
 </gaphor>

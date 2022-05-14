@@ -106,6 +106,20 @@ class SigrokCLI(SigrokDriver):
     def configure_channels(self,
                            ch_list: typing.List[str],
                            all_ch: bool = False):
+        """
+        Sets active channels for selected driver/device
+
+        Parameters
+        ----------
+        ch_list: typing.List[str]
+            List of channels provided as strings for universality point of view.
+        all_ch: bool
+            If set to True, it will use all available channels for selected driver/device
+
+        Returns
+        -------
+        Active selected devices as list
+        """
         self._active_channels = [ch_list] if isinstance(ch_list,
                                                         str) else ch_list
         if all_ch:
@@ -122,6 +136,20 @@ class SigrokCLI(SigrokDriver):
                               output_to_file: bool = False,
                               file_type: OutputType = OutputType.CSV,
                               file_path: pathlib.Path = ...):
+        """
+        Configures additional stuff to the measurement. Persits between measurements.
+
+        Parameters
+        ----------
+        wait_for_trigger: bool
+            After starting measurement, it should wait until set trigger point, by default False
+        output_to_file: bool
+            If enabled, it will save measurement results to file, by default False
+        file_type: OutputType
+            If output_to_file is set to True, it sets type of the output file.
+        file_path: pathlib.Path
+            Points to the output file
+        """
         self.measurement_cfg.clear()
         if wait_for_trigger:
             self.measurement_cfg.append('--wait-trigger')

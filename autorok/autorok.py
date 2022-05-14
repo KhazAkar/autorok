@@ -145,5 +145,20 @@ class Autorok:
         return result
 
     def start_timed_measurement(self, sampling_time: int, decode: bool = False):
+        """
+        Starts measurement for X amount of time (in seconds), using previously configured sampling rate etc
+
+        Parameters
+        ----------
+        sampling_time: int
+            How long do you want to record data? (in seconds)
+        decode: bool
+            Enables/disables decoding. Disabled (False) by default
+
+        Returns
+        -------
+        subprocess.CompletedProcess
+            Result of measurement with extra metadata
+        """
         result = self.driver.start_timed_measurement(sampling_time = sampling_time, decode = decode)
         return result

@@ -43,7 +43,7 @@ class SigrokCLI(SigrokDriver):
                                        check = True)
         return sigrok_output
 
-    def _parse_scan_results(self, subprocess_output):
+    def _cleanup_subprocess_output(self, subprocess_output):
         output_split = subprocess_output.stdout.split('\n')
         output_split.pop(-1)  # Remove trailing newline char
         output_split.pop(0)  # Remove first string
@@ -51,6 +51,10 @@ class SigrokCLI(SigrokDriver):
         drivers_strings = [
             driver[:driver.index(' ')] for driver in output_split
         ]
+        return drivers_strings
+
+    def _parse_scan_results(self, subprocess_output):
+        drivers_strings = self._cleanup_subprocess_output(subprocess_output)
         ports = []
         for idx, driver in enumerate(drivers_strings):
             if ':' in driver:

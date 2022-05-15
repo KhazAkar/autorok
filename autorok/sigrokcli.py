@@ -188,6 +188,7 @@ class SigrokCLI(SigrokDriver):
                                 universal_newlines=True,
                                 capture_output=True,
                                 check=True)
+        self._sigrok_meas_args = self._sigrok_meas_args[:-2]
         return result
 
     def start_framed_measurement(self, frames: int, decode: bool = False):
@@ -197,6 +198,7 @@ class SigrokCLI(SigrokDriver):
                                 universal_newlines=True,
                                 capture_output=True,
                                 check=True)
+        self._sigrok_meas_args = self._sigrok_meas_args[:-2]
         return result
 
     def start_timed_measurement(self, sampling_time: int, decode: bool = False):
@@ -206,4 +208,5 @@ class SigrokCLI(SigrokDriver):
                                 universal_newlines=True,
                                 capture_output=True,
                                 check=True)
+        self._sigrok_meas_args = self._sigrok_meas_args[:-2]
         return result

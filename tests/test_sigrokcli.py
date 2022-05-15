@@ -46,6 +46,15 @@ def test_should_start_sampled_measurement_wo_decode(sigrok):
     assert result.returncode == 0 and result.stdout != ''
 
 
+def test_should_allow_measurement_rerun(sigrok):
+    device_list = sigrok.scan_devices()
+    sigrok.select_device(device_list[0])
+    sigrok.configure_channels(['D0'])
+    sigrok.start_sampled_measurement(samples = 2)
+    result = sigrok.start_framed_measurement(frames = 3)
+    assert result.returncode == 0 and result.stdout != '' and '--samples' not in result.args
+
+
 def test_should_start_framed_measurement_wo_decode(sigrok):
     device_list = sigrok.scan_devices()
     sigrok.select_device(device_list[0])

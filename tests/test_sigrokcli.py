@@ -94,3 +94,11 @@ def test_should_record_result_to_file_from_measurement_with_selected_output_file
     sigrok.start_sampled_measurement(2)
     assert os.path.isfile(file)
     os.remove(file)
+
+
+def test_should_show_available_config_options(sigrok):
+    device_list = sigrok.scan_devices()
+    sigrok.select_device(device_list[0])
+    config_options = sigrok.get_config_options()
+    assert config_options is not None
+

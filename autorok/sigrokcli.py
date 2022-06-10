@@ -192,6 +192,8 @@ class SigrokCLI(SigrokDriver):
         return result
 
     def start_framed_measurement(self, frames: int, decode: bool = False):
+        """
+        """
         for elem in ["--frames", str(frames)]:
             self._sigrok_meas_args.append(elem)
         result = subprocess.run(self._sigrok_meas_args,
@@ -202,6 +204,8 @@ class SigrokCLI(SigrokDriver):
         return result
 
     def start_timed_measurement(self, sampling_time: int, decode: bool = False):
+        """
+        """
         for elem in ["--time", str(sampling_time)]:
             self._sigrok_meas_args.append(elem)
         result = subprocess.run(self._sigrok_meas_args,

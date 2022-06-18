@@ -42,6 +42,9 @@ class Autorok:
         """ Shows details for connected devices, like their options etc """
         return self.driver.show_connected_devices_details()
 
+    def get_config_options(self):
+        return self.driver.get_config_options()
+
     def scan_devices(self):
         """ Scans for connected devices, parses them as Device class instances and returns list with them """
         output = self.driver.scan_devices()

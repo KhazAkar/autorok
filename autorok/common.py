@@ -42,6 +42,10 @@ class OutputType(enum.Enum):
 
 class SigrokDriver(ABC):
     @abstractmethod
+    def get_config_options(self):
+        pass
+
+    @abstractmethod
     def show_connected_devices_details(self):
         pass
 

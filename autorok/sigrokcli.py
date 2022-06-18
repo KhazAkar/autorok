@@ -35,13 +35,34 @@ class SigrokCLI(SigrokDriver):
             if not self._sigrok_path:
                 raise ValueError("No sigrok available, abort.")
 
+    def _get_details(self):
+        self._check_sigrok_availability()
+        details = subprocess.run([self._sigrok_path, '--show'],
+                                 universal_newlines = True,
+                                 check = True)
+        return details
+
+    def _parse_sigrok_show(self, details):
+        split = details.stdout.splitlines()
+        for idx, line in enumerate(split):
+            if "Supported configuration options" in line:
+                options_idx = idx
+        split_cut = split[options_idx + 1:]
+        split_cut_stripped = [line.lstrip(' ') for line in split_cut]
+        output = {}
+        for line in split_cut_stripped:
+            split = line.split(': ')
+            output[split[0]] = split[1].split(', ')
+        return output
+
+    def get_config_options(self):
+        details = self._get_details()
+        output = self._parse_sigrok_show(details = details)
+        return output
+
     def show_connected_devices_details(self):
         """ Uses subprocess to collect details for connected devices """
-        self._check_sigrok_availability()
-        sigrok_output = subprocess.run([self._sigrok_path, '--show'],
-                                       universal_newlines = True,
-                                       check = True)
-        return sigrok_output
+        return self._get_details()
 
     def _cleanup_subprocess_output(self, subprocess_output):
         output_split = subprocess_output.stdout.split('\n')

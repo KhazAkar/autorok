@@ -38,8 +38,9 @@ class SigrokCLI(SigrokDriver):
     def _get_details(self):
         self._check_sigrok_availability()
         details = subprocess.run([self._sigrok_path, '--show'],
-                                 universal_newlines = True,
-                                 check = True)
+                                 universal_newlines=True,
+                                 capture_output = True,
+                                 check=True)
         return details
 
     def _parse_sigrok_show(self, details):
@@ -51,13 +52,17 @@ class SigrokCLI(SigrokDriver):
         split_cut_stripped = [line.lstrip(' ') for line in split_cut]
         output = {}
         for line in split_cut_stripped:
-            split = line.split(': ')
-            output[split[0]] = split[1].split(', ')
+            if ':' in line:
+                split = line.split(': ')
+                output[split[0]] = split[1].split(', ')
+            if 'samplerate' in line:
+                first_space = line.index(' ')
+                output[line[:first_space]] = [line[first_space:]]
         return output
 
     def get_config_options(self):
         details = self._get_details()
-        output = self._parse_sigrok_show(details = details)
+        output = self._parse_sigrok_show(details=details)
         return output
 
     def show_connected_devices_details(self):

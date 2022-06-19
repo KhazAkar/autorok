@@ -5,3 +5,4 @@ autorok.code-workspace
 SigrokCLI.log
 autorok.log
 .vscode/settings.json
+/venv

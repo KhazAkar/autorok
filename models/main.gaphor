@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<gaphor xmlns="http://gaphor.sourceforge.net/model" version="3.0" gaphor-version="2.9.2">
+<gaphor xmlns="http://gaphor.sourceforge.net/model" version="3.0" gaphor-version="2.10.0">
 <StyleSheet id="784c7633-6b2d-11ec-ba06-b70265b0afec"/>
 <Package id="784ca312-6b2d-11ec-9387-b70265b0afec">
 <name>
@@ -142,6 +142,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 496.0, 357.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>176.0</val>
 </width>
@@ -159,6 +162,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 391.0, 459.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>105.0</val>
 </width>
@@ -176,6 +182,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 672.0, 459.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>103.0</val>
 </width>
@@ -206,6 +215,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 391.0, 549.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>135.0</val>
 </width>
@@ -250,6 +262,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 496.0, 254.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>135.0</val>
 </width>
@@ -294,6 +309,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 672.0, 549.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>135.0</val>
 </width>
@@ -353,6 +371,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 373.0, 451.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>169.0</val>
 </width>
@@ -367,6 +388,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 657.0, 449.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>168.0</val>
 </width>
@@ -394,6 +418,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 673.5, 254.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>135.0</val>
 </width>
@@ -435,6 +462,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 230.0, 509.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>138.0</val>
 </width>
@@ -462,6 +492,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 839.0, 524.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>138.0</val>
 </width>
@@ -489,6 +522,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 919.5, 260.5)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>198.5</val>
 </width>
@@ -506,6 +542,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 391.0, 237.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>611.0</val>
 </width>
@@ -560,6 +599,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 308.5, 254.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>135.0</val>
 </width>
@@ -623,6 +665,7 @@
 <ref refid="bcd8cc33-c993-11ec-bd4f-57a536c35188"/>
 <ref refid="aa99b84e-c994-11ec-8b9a-57a536c35188"/>
 <ref refid="062cd98e-d01d-11ec-95cc-5fe4f3f0877c"/>
+<ref refid="af31f5e4-f4c8-11ec-94d4-f77c26698d25"/>
 </reflist>
 </presentation>
 </Actor>
@@ -630,6 +673,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 157.0, 332.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>38.0</val>
 </width>
@@ -720,6 +766,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 281.0, 223.39999999999998)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>575.0</val>
 </width>
@@ -734,6 +783,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 560.0, 223.39999999999998)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>133.0</val>
 </width>
@@ -796,6 +848,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 336.5, 423.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>457.0</val>
 </width>
@@ -823,6 +878,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 565.0, 339.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>138.0</val>
 </width>
@@ -863,6 +921,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 298.0, 253.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>223.0</val>
 </width>
@@ -903,6 +964,7 @@
 <ref refid="b7439f4f-6c1a-11ec-b4d3-9532460bbeb0"/>
 <ref refid="90079887-c98f-11ec-9886-efeb2404c057"/>
 <ref refid="b43345c0-d01c-11ec-afbc-5fe4f3f0877c"/>
+<ref refid="4e78f8d5-f4c8-11ec-b750-f77c26698d25"/>
 </reflist>
 </nestedPackage>
 <ownedType>
@@ -984,6 +1046,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 332.0, 503.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>38.0</val>
 </width>
@@ -1080,6 +1145,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 479.0, 255.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>361.0</val>
 </width>
@@ -1094,6 +1162,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 656.0, 274.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>122.0</val>
 </width>
@@ -1137,6 +1208,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 647.5, 407.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>139.0</val>
 </width>
@@ -1154,6 +1228,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 489.0, 522.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>152.0</val>
 </width>
@@ -1171,6 +1248,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 652.5, 348.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>129.0</val>
 </width>
@@ -1188,6 +1268,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 641.0, 336.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>155.0</val>
 </width>
@@ -1212,6 +1295,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 479.0, 639.5)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>361.0</val>
 </width>
@@ -1655,6 +1741,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 358.0, 336.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>145.0</val>
 </width>
@@ -1745,6 +1834,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 61.0, 408.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>38.0</val>
 </width>
@@ -1762,6 +1854,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 579.0, 223.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>122.0</val>
 </width>
@@ -1779,6 +1874,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 402.0, 202.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>334.0</val>
 </width>
@@ -1798,6 +1896,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 564.0, 285.5)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>152.0</val>
 </width>
@@ -1815,6 +1916,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 144.0, 7.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>188.0</val>
 </width>
@@ -1846,6 +1950,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 425.0, 422.5731707317073)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>174.0</val>
 </width>
@@ -1998,6 +2105,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 101.0, 466.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>38.0</val>
 </width>
@@ -2015,6 +2125,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 377.0, 267.5)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>263.0</val>
 </width>
@@ -2047,6 +2160,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 417.0, 457.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>194.0</val>
 </width>
@@ -2100,6 +2216,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 471.0, 300.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>126.0</val>
 </width>
@@ -2236,6 +2355,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 16.0, 562.5570469798658)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>38.0</val>
 </width>
@@ -2253,6 +2375,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 474.0, 299.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>236.0</val>
 </width>
@@ -2285,6 +2410,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 497.25, 600.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>183.5</val>
 </width>
@@ -2315,6 +2443,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 497.25, 350.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>198.75</val>
 </width>
@@ -2511,6 +2642,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, -214.0, 562.8410138248848)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>38.0</val>
 </width>
@@ -2528,6 +2662,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 343.0, 264.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>411.0</val>
 </width>
@@ -2542,6 +2679,9 @@
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 520.0, 276.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>199.0</val>
 </width>
@@ -2567,6 +2707,9 @@ like selecting active device etc</val>
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 554.0, 288.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>131.0</val>
 </width>
@@ -2584,6 +2727,9 @@ like selecting active device etc</val>
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 530.5, 448.5)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>184.0</val>
 </width>
@@ -2601,6 +2747,9 @@ like selecting active device etc</val>
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 554.0, 368.5)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>137.0</val>
 </width>
@@ -2638,6 +2787,7 @@ like selecting active device etc</val>
 <presentation>
 <reflist>
 <ref refid="59bd5b31-d01d-11ec-90a9-5fe4f3f0877c"/>
+<ref refid="b1b7299a-f4c8-11ec-844c-f77c26698d25"/>
 </reflist>
 </presentation>
 </UseCase>
@@ -2645,6 +2795,9 @@ like selecting active device etc</val>
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 364.0, 533.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>188.0</val>
 </width>
@@ -2768,6 +2921,9 @@ like selecting active device etc</val>
 <matrix>
 <val>(1.0, 0.0, 0.0, 1.0, 101.0, 352.0)</val>
 </matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
 <width>
 <val>241.0</val>
 </width>
@@ -2781,4 +2937,289 @@ like selecting active device etc</val>
 <ref refid="4e6cd0b3-d38d-11ec-a429-d7ff6da4bf3c"/>
 </subject>
 </CommentItem>
+<Package id="4e78f8d5-f4c8-11ec-b750-f77c26698d25">
+<name>
+<val>#8 UseCase - Set additional device config options</val>
+</name>
+<ownedDiagram>
+<reflist>
+<ref refid="a40acc31-f4c8-11ec-b580-f77c26698d25"/>
+</reflist>
+</ownedDiagram>
+<ownedType>
+<reflist>
+<ref refid="c6a448bd-f4c8-11ec-be70-f77c26698d25"/>
+<ref refid="2c953273-f4c9-11ec-8490-f77c26698d25"/>
+</reflist>
+</ownedType>
+<package>
+<ref refid="611d4191-6bec-11ec-840c-9532460bbeb0"/>
+</package>
+</Package>
+<Diagram id="a40acc31-f4c8-11ec-b580-f77c26698d25">
+<diagramType>
+<val>uc</val>
+</diagramType>
+<element>
+<ref refid="4e78f8d5-f4c8-11ec-b750-f77c26698d25"/>
+</element>
+<name>
+<val>#8 Use Case - Set additional device config options diagram</val>
+</name>
+<ownedPresentation>
+<reflist>
+<ref refid="af31f5e4-f4c8-11ec-94d4-f77c26698d25"/>
+<ref refid="b1b7299a-f4c8-11ec-844c-f77c26698d25"/>
+<ref refid="bbec792e-f4c8-11ec-ba44-f77c26698d25"/>
+<ref refid="c6a48761-f4c8-11ec-8c2c-f77c26698d25"/>
+<ref refid="eb7e591a-f4c8-11ec-a0d2-f77c26698d25"/>
+<ref refid="0b9a8d15-f4c9-11ec-8f2d-f77c26698d25"/>
+<ref refid="3a01a146-f4c9-11ec-8f48-f77c26698d25"/>
+</reflist>
+</ownedPresentation>
+</Diagram>
+<ActorItem id="af31f5e4-f4c8-11ec-94d4-f77c26698d25">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 104.0, 540.0)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>38.0</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<diagram>
+<ref refid="a40acc31-f4c8-11ec-b580-f77c26698d25"/>
+</diagram>
+<subject>
+<ref refid="eeb989e4-6b4c-11ec-8827-b70265b0afec"/>
+</subject>
+</ActorItem>
+<UseCaseItem id="b1b7299a-f4c8-11ec-844c-f77c26698d25">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 403.0, 477.0)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>166.0</val>
+</width>
+<height>
+<val>37.0</val>
+</height>
+<diagram>
+<ref refid="a40acc31-f4c8-11ec-b580-f77c26698d25"/>
+</diagram>
+<subject>
+<ref refid="59bd3768-d01d-11ec-b900-5fe4f3f0877c"/>
+</subject>
+</UseCaseItem>
+<Box id="bbec792e-f4c8-11ec-ba44-f77c26698d25">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 368.0, 467.0)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>237.0</val>
+</width>
+<height>
+<val>157.0</val>
+</height>
+<diagram>
+<ref refid="a40acc31-f4c8-11ec-b580-f77c26698d25"/>
+</diagram>
+</Box>
+<UseCase id="c6a448bd-f4c8-11ec-be70-f77c26698d25">
+<include>
+<reflist>
+<ref refid="3ab7c55e-f4c9-11ec-9b13-f77c26698d25"/>
+</reflist>
+</include>
+<name>
+<val>SetConfigOption</val>
+</name>
+<package>
+<ref refid="4e78f8d5-f4c8-11ec-b750-f77c26698d25"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="c6a48761-f4c8-11ec-8c2c-f77c26698d25"/>
+</reflist>
+</presentation>
+</UseCase>
+<UseCaseItem id="c6a48761-f4c8-11ec-8c2c-f77c26698d25">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 403.0, 558.75)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>159.0</val>
+</width>
+<height>
+<val>36.5</val>
+</height>
+<diagram>
+<ref refid="a40acc31-f4c8-11ec-b580-f77c26698d25"/>
+</diagram>
+<subject>
+<ref refid="c6a448bd-f4c8-11ec-be70-f77c26698d25"/>
+</subject>
+</UseCaseItem>
+<Comment id="eb7e4df0-f4c8-11ec-9660-f77c26698d25">
+<body>
+<val>Prerequisite for setting config options - require scan for available config options</val>
+</body>
+<presentation>
+<reflist>
+<ref refid="eb7e591a-f4c8-11ec-a0d2-f77c26698d25"/>
+</reflist>
+</presentation>
+</Comment>
+<CommentItem id="eb7e591a-f4c8-11ec-a0d2-f77c26698d25">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 394.5, 388.0)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>192.0</val>
+</width>
+<height>
+<val>79.0</val>
+</height>
+<diagram>
+<ref refid="a40acc31-f4c8-11ec-b580-f77c26698d25"/>
+</diagram>
+<subject>
+<ref refid="eb7e4df0-f4c8-11ec-9660-f77c26698d25"/>
+</subject>
+</CommentItem>
+<AssociationItem id="0b9a8d15-f4c9-11ec-8f2d-f77c26698d25">
+<diagram>
+<ref refid="a40acc31-f4c8-11ec-b580-f77c26698d25"/>
+</diagram>
+<head_subject>
+<ref refid="2c95632b-f4c9-11ec-8955-f77c26698d25"/>
+</head_subject>
+<horizontal>
+<val>0</val>
+</horizontal>
+<note>
+<val></val>
+</note>
+<show_direction>
+<val>1</val>
+</show_direction>
+<subject>
+<ref refid="2c953273-f4c9-11ec-8490-f77c26698d25"/>
+</subject>
+<tail_subject>
+<ref refid="2c958377-f4c9-11ec-8cea-f77c26698d25"/>
+</tail_subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 130.0, 570.0)</val>
+</matrix>
+<points>
+<val>[(12.0, 0.5), (273.0, 0.0)]</val>
+</points>
+<head-connection>
+<ref refid="af31f5e4-f4c8-11ec-94d4-f77c26698d25"/>
+</head-connection>
+<tail-connection>
+<ref refid="c6a48761-f4c8-11ec-8c2c-f77c26698d25"/>
+</tail-connection>
+</AssociationItem>
+<Association id="2c953273-f4c9-11ec-8490-f77c26698d25">
+<memberEnd>
+<reflist>
+<ref refid="2c95632b-f4c9-11ec-8955-f77c26698d25"/>
+<ref refid="2c958377-f4c9-11ec-8cea-f77c26698d25"/>
+</reflist>
+</memberEnd>
+<name>
+<val>set_option(option, value/s)
+</val>
+</name>
+<ownedEnd>
+<reflist>
+<ref refid="2c95632b-f4c9-11ec-8955-f77c26698d25"/>
+<ref refid="2c958377-f4c9-11ec-8cea-f77c26698d25"/>
+</reflist>
+</ownedEnd>
+<package>
+<ref refid="4e78f8d5-f4c8-11ec-b750-f77c26698d25"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="0b9a8d15-f4c9-11ec-8f2d-f77c26698d25"/>
+</reflist>
+</presentation>
+</Association>
+<Property id="2c95632b-f4c9-11ec-8955-f77c26698d25">
+<association>
+<ref refid="2c953273-f4c9-11ec-8490-f77c26698d25"/>
+</association>
+<owningAssociation>
+<ref refid="2c953273-f4c9-11ec-8490-f77c26698d25"/>
+</owningAssociation>
+<type>
+<ref refid="eeb989e4-6b4c-11ec-8827-b70265b0afec"/>
+</type>
+</Property>
+<Property id="2c958377-f4c9-11ec-8cea-f77c26698d25">
+<association>
+<ref refid="2c953273-f4c9-11ec-8490-f77c26698d25"/>
+</association>
+<owningAssociation>
+<ref refid="2c953273-f4c9-11ec-8490-f77c26698d25"/>
+</owningAssociation>
+<type>
+<ref refid="c6a448bd-f4c8-11ec-be70-f77c26698d25"/>
+</type>
+</Property>
+<IncludeItem id="3a01a146-f4c9-11ec-8f48-f77c26698d25">
+<diagram>
+<ref refid="a40acc31-f4c8-11ec-b580-f77c26698d25"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<subject>
+<ref refid="3ab7c55e-f4c9-11ec-9b13-f77c26698d25"/>
+</subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 478.0, 555.0)</val>
+</matrix>
+<points>
+<val>[(0.0, -41.0), (0.0, 3.75)]</val>
+</points>
+<head-connection>
+<ref refid="b1b7299a-f4c8-11ec-844c-f77c26698d25"/>
+</head-connection>
+<tail-connection>
+<ref refid="c6a48761-f4c8-11ec-8c2c-f77c26698d25"/>
+</tail-connection>
+</IncludeItem>
+<Include id="3ab7c55e-f4c9-11ec-9b13-f77c26698d25">
+<addition>
+<ref refid="59bd3768-d01d-11ec-b900-5fe4f3f0877c"/>
+</addition>
+<includingCase>
+<ref refid="c6a448bd-f4c8-11ec-be70-f77c26698d25"/>
+</includingCase>
+<presentation>
+<reflist>
+<ref refid="3a01a146-f4c9-11ec-8f48-f77c26698d25"/>
+</reflist>
+</presentation>
+</Include>
 </gaphor>

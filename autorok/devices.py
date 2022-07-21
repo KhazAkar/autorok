@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import typing
 
-__all__ = ['Device']
+__all__ = ['Device', 'DeviceList']
 
 
 @dataclass(repr=False)
@@ -33,15 +33,9 @@ class Device:
         return f"Device driver: {self.driver} on {self.port if self.port else 'NULL Port'}"
 
 
-device_map = {
-    'demo':
-    Device('demo', "", ['A0', 'A1', 'A2', 'A3', 'A4'],
-           ['D0', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7']),
-    'dreamsourcelab-dslogic':
-    Device('dreamsourcelab-dslogic', "", None, [
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
-        '13', '14', '15'
-    ]),
-    'brymen-bm857':
-    Device('brymen-bm857', "", [""], [""])
-}
+class DeviceList:
+    demo = Device('demo', "", ['A0', 'A1', 'A2', 'A3', 'A4'],
+                  ['D0', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7'])
+    dreamsourcelab_dslogic = Device('dreamsourcelab-dslogic', "", None, [
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'])
+    brymen_bm857 = Device('brymen-bm857', "", [""], [""])

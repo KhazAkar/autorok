@@ -4,7 +4,7 @@ import subprocess
 import typing
 
 from autorok.common import SigrokDriver, OutputType
-from autorok.devices import Device, device_map
+from autorok.devices import Device, DeviceList
 
 
 class SigrokCLI(SigrokDriver):
@@ -89,12 +89,9 @@ class SigrokCLI(SigrokDriver):
                               driver[driver.index(':') + 1:]))
                 # strip :conn from driver name after gathering port and clear out unwanted \n char
                 driver = driver[:driver.index(':')]
-                drivers_strings[idx] = driver
-        for pair in ports:
-            # assign gathered port to Device instance
-            device_map[pair[0]].port = pair[1]
+            drivers_strings[idx] = driver
         self._detected_devices = [
-            device_map.get(driver, Device('UNKNOWN'))
+            getattr(DeviceList, driver, Device('UNKNOWN'))
             for driver in drivers_strings
         ]
         return self._detected_devices
@@ -102,9 +99,9 @@ class SigrokCLI(SigrokDriver):
     def scan_devices(self):
         self._check_sigrok_availability()
         sigrok_output = subprocess.run([self._sigrok_path, '--scan'],
-                                       universal_newlines=True,
-                                       capture_output=True,
-                                       check=True)
+                                       universal_newlines = True,
+                                       capture_output = True,
+                                       check = True)
 
         return self._parse_scan_results(sigrok_output)
 

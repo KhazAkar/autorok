@@ -4,8 +4,8 @@ import pathlib
 import pytest
 
 from autorok.common import OutputType
+from autorok.devices import Device
 from autorok.autorok import Autorok, SigrokInterface
-from autorok.devices import device_map
 
 
 @pytest.fixture
@@ -17,7 +17,7 @@ def sigrok():
 
 def test_should_scan_for_devices(sigrok):
     device_list = sigrok.scan_devices()
-    assert device_map.get('demo') in device_list
+    assert isinstance(device_list[-1], Device)
 
 
 def test_should_allow_selecting_device(sigrok):

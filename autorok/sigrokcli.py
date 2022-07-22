@@ -83,6 +83,8 @@ class SigrokCLI(SigrokDriver):
         drivers_strings = self._cleanup_subprocess_output(subprocess_output)
         ports = []
         for idx, driver in enumerate(drivers_strings):
+            if '-' in driver:
+                driver = driver.replace('-', '_')
             if ':' in driver:
                 # create tuple driver,port
                 ports.append((driver[:driver.index(':')],

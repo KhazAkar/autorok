@@ -81,16 +81,15 @@ class SigrokCLI(SigrokDriver):
 
     def _parse_scan_results(self, subprocess_output):
         drivers_strings = self._cleanup_subprocess_output(subprocess_output)
-        ports = []
         for idx, driver in enumerate(drivers_strings):
             if '-' in driver:
                 driver = driver.replace('-', '_')
             if ':' in driver:
                 # create tuple driver,port
-                ports.append((driver[:driver.index(':')],
-                              driver[driver.index(':') + 1:]))
+                port = driver[driver.index(':') + 1:]
                 # strip :conn from driver name after gathering port and clear out unwanted \n char
                 driver = driver[:driver.index(':')]
+                getattr(DeviceList, driver).port = port
             drivers_strings[idx] = driver
         self._detected_devices = [
             getattr(DeviceList, driver, Device('UNKNOWN'))

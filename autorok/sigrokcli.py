@@ -35,15 +35,15 @@ class SigrokCLI(SigrokDriver):
             if not self._sigrok_path:
                 raise ValueError("No sigrok available, abort.")
 
-    def _get_details(self):
+    def _get_details(self, driver: str = 'demo'):
         self._check_sigrok_availability()
-        details = subprocess.run([self._sigrok_path, '--show'],
-                                 universal_newlines=True,
+        details = subprocess.run([self._sigrok_path, '--show', '--driver', driver],
+                                 universal_newlines = True,
                                  capture_output = True,
-                                 check=True)
+                                 check = True)
         return details
 
-    def _parse_sigrok_show(self, details):
+    def _parse_sigrok_config_options(self, details):
         split = details.stdout.splitlines()
         for idx, line in enumerate(split):
             if "Supported configuration options" in line:
@@ -60,14 +60,14 @@ class SigrokCLI(SigrokDriver):
                 output[line[:first_space]] = [line[first_space:]]
         return output
 
-    def get_config_options(self):
-        details = self._get_details()
-        output = self._parse_sigrok_show(details=details)
+    def get_config_options(self, driver: str = 'demo'):
+        details = self._get_details(driver = driver)
+        output = self._parse_sigrok_config_options(details=details)
         return output
 
-    def show_connected_devices_details(self):
+    def show_connected_devices_details(self, driver: str = 'demo'):
         """ Uses subprocess to collect details for connected devices """
-        return self._get_details()
+        return self._get_details(driver)
 
     def _cleanup_subprocess_output(self, subprocess_output):
         output_split = subprocess_output.stdout.split('\n')
@@ -106,7 +106,7 @@ class SigrokCLI(SigrokDriver):
 
         return self._parse_scan_results(sigrok_output)
 
-    def select_device(self, device: Device):
+    def select_measurement_device(self, device: Device):
         """
         Selects device from previously scanned list
 

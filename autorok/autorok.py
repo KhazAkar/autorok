@@ -38,12 +38,12 @@ class Autorok:
         self.active_device: Device = None
         self.active_channels = ['']
 
-    def show_connected_devices_details(self):
+    def show_connected_devices_details(self, driver: str = 'demo'):
         """ Shows details for connected devices, like their options etc """
-        return self.driver.show_connected_devices_details()
+        return self.driver.show_connected_devices_details(driver)
 
-    def get_config_options(self):
-        return self.driver.get_config_options()
+    def get_config_options(self, driver: str = 'demo'):
+        return self.driver.get_config_options(driver)
 
     def scan_devices(self):
         """ Scans for connected devices, parses them as Device class instances and returns list with them """
@@ -65,7 +65,7 @@ class Autorok:
         Device
             Currently selected device
         """
-        self.active_device = self.driver.select_device(device=device)
+        self.active_device = self.driver.select_measurement_device(device=device)
         return self.active_device
 
     def configure_channels(self,

@@ -51,7 +51,7 @@ class Autorok:
         print(f"Following devices were detected: {output}")
         return output
 
-    def select_device(self, device: Device):
+    def select_measurement_device(self, device: Device):
         """
         Simple method to select device after scanning
 

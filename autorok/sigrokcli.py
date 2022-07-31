@@ -67,7 +67,7 @@ class SigrokCLI(SigrokDriver):
 
     def show_connected_devices_details(self, driver: str = 'demo'):
         """ Uses subprocess to collect details for connected devices """
-        return self._get_details(driver)
+        return self._get_details(driver = driver)
 
     def _cleanup_subprocess_output(self, subprocess_output):
         output_split = subprocess_output.stdout.split('\n')
@@ -106,7 +106,7 @@ class SigrokCLI(SigrokDriver):
 
         return self._parse_scan_results(sigrok_output)
 
-    def select_measurement_device(self, device: Device):
+    def select_measurement_device(self, device: Device) -> Device:
         """
         Selects device from previously scanned list
 
@@ -134,7 +134,7 @@ class SigrokCLI(SigrokDriver):
 
     def configure_channels(self,
                            ch_list: typing.List[str],
-                           all_ch: bool = False):
+                           all_ch: bool = False) -> typing.List:
         """
         Sets active channels for selected driver/device
 
@@ -164,7 +164,7 @@ class SigrokCLI(SigrokDriver):
                               wait_for_trigger: bool = False,
                               output_to_file: bool = False,
                               file_type: OutputType = OutputType.CSV,
-                              file_path: pathlib.Path = ...):
+                              file_path: pathlib.Path = ...) -> None:
         """
         Configures additional stuff to the measurement. Persits between measurements.
 
@@ -188,7 +188,7 @@ class SigrokCLI(SigrokDriver):
         for elem in self.measurement_cfg:
             self._sigrok_meas_args.append(elem)
 
-    def start_sampled_measurement(self, samples: int, decode: bool = False):
+    def start_sampled_measurement(self, samples: int, decode: bool = False) -> subprocess.CompletedProcess:
         """
         Starts measurement based on number of samples to gather from device
 
@@ -215,8 +215,16 @@ class SigrokCLI(SigrokDriver):
         self._sigrok_meas_args = self._sigrok_meas_args[:-2]
         return result
 
-    def start_framed_measurement(self, frames: int, decode: bool = False):
+    def start_framed_measurement(self, frames: int, decode: bool = False) -> subprocess.CompletedProcess:
         """
+        Starts measurement, counted in frames
+
+        Parameters
+        ----------
+        frames: int
+            How many frames do you want to collect
+        decode: bool
+            Do you want to get decoded values or raw ones? False by default
         """
         for elem in ["--frames", str(frames)]:
             self._sigrok_meas_args.append(elem)
@@ -227,7 +235,7 @@ class SigrokCLI(SigrokDriver):
         self._sigrok_meas_args = self._sigrok_meas_args[:-2]
         return result
 
-    def start_timed_measurement(self, sampling_time: int, decode: bool = False):
+    def start_timed_measurement(self, sampling_time: int, decode: bool = False) -> subprocess.CompletedProcess:
         """
         """
         for elem in ["--time", str(sampling_time)]:

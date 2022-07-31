@@ -100,5 +100,4 @@ def test_should_show_available_config_options(sigrok):
     device_list = sigrok.scan_devices()
     sigrok.select_measurement_device(device_list[0])
     config_options = sigrok.get_config_options()
-    assert config_options is not None
-
+    assert config_options.get('samplerate', None) is not None

@@ -27,9 +27,9 @@ class Autorok:
     They are as follows:
         sigrok-cli (Working, WIP)
 
-        libsigrok (WIP)
+        libsigrok (TBD)
 
-        libsigrok4DSL (for DreamSourceLabs devices not supported by mainline libsigrok, WIP)
+        libsigrok4DSL (for DreamSourceLabs devices not supported by mainline libsigrok, TBD)
     """
 
     def __init__(self, iface: SigrokInterface):
@@ -43,6 +43,7 @@ class Autorok:
         return self.driver.show_connected_devices_details(driver)
 
     def get_config_options(self, driver: str = 'demo'):
+        """ Grabs all available configuration options for selected driver """
         return self.driver.get_config_options(driver)
 
     def scan_devices(self):

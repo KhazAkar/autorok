@@ -1,3 +1,6 @@
+# ATTENTION
+This project is no longer maintained under this URL. New repository link: https://git.sr.ht/~khazakar/autorok
+
 # Autorok
 
 ## Brief overview

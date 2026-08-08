@@ -1,3 +1,9 @@
+"""
+Main Autorok module.
+
+This module provides the main interface for using the Autorok library.
+"""
+
 import enum
 import pathlib
 import typing
@@ -9,19 +15,21 @@ from autorok.sigrokcli import SigrokCLI
 
 class SigrokInterface(enum.Enum):
     """
-    Selector for Sigrok driver to use
+    Selector for Sigrok driver to use.
 
     Parameters
     ----------
     enum : SigrokDriver
-        Selectable SigrokDriver to use
+        Selectable SigrokDriver to use.
     """
+
     SIGROK_CLI = SigrokCLI
 
 
 class Autorok:
     """
     Main class. It's an interface to use this project at all.
+
     Allows for unified usage of available 'backends', which are currently 3, but 1 in working state.
 
     They are as follows:
@@ -32,85 +40,93 @@ class Autorok:
         libsigrok4DSL (for DreamSourceLabs devices not supported by mainline libsigrok, TBD)
     """
 
-    def __init__(self, iface: SigrokInterface):
+    def __init__(self, iface: SigrokInterface) -> None:
         self.driver = iface.value()
-        self.device_list = []
-        self.active_device: Device = None
-        self.active_channels = ['']
+        self.device_list: list[Device] = []
+        self.active_device: Device | None = None
+        self.active_channels: list[str] = [""]
 
-    def show_connected_devices_details(self, driver: str = 'demo'):
-        """ Shows details for connected devices, like their options etc """
+    def show_connected_devices_details(self, driver: str = "demo") -> typing.Any:
+        """Shows details for connected devices, like their options etc."""
         return self.driver.show_connected_devices_details(driver)
 
-    def get_config_options(self, driver: str = 'demo'):
-        """ Grabs all available configuration options for selected driver """
+    def get_config_options(self, driver: str = "demo") -> dict[str, list[str]]:
+        """Grabs all available configuration options for selected driver."""
         return self.driver.get_config_options(driver)
 
-    def scan_devices(self):
-        """ Scans for connected devices, parses them as Device class instances and returns list with them """
+    def scan_devices(self) -> list[Device]:
+        """Scans for connected devices, parses them as Device class instances and returns list with them."""
         output = self.driver.scan_devices()
         print(f"Following devices were detected: {output}")
         return output
 
-    def select_measurement_device(self, device: Device):
+    def select_measurement_device(self, device: Device) -> Device:
         """
-        Simple method to select device after scanning
+        Simple method to select device after scanning.
 
         Parameters
         ----------
         device : Device
-            Device instance, taken from scan_devices
+            Device instance, taken from scan_devices.
 
         Returns
         -------
         Device
-            Currently selected device
+            Currently selected device.
         """
         self.active_device = self.driver.select_measurement_device(device=device)
         return self.active_device
 
-    def configure_channels(self,
-                           ch_list: typing.List[str],
-                           all_ch: bool = False):
+    def configure_channels(
+        self, ch_list: list[str] | str, all_ch: bool = False
+    ) -> list[str]:
         """
-        Selects which cnannels should be used for measurement
+        Selects which channels should be used for measurement.
 
         Parameters
         ----------
-        ch_list : List[str]
-            List of channels to be used for measurements
+        ch_list : list[str] | str
+            List of channels to be used for measurements.
         all_ch : bool
-            If true, then all channels are used, by default False
+            If true, then all channels are used, by default False.
         """
-        self.active_channels = self.driver.configure_channels(ch_list=ch_list,
-                                                              all_ch=all_ch)
+        self.active_channels = self.driver.configure_channels(
+            ch_list=ch_list, all_ch=all_ch
+        )
+        return self.active_channels
 
-    def configure_measurement(self,
-                              wait_for_trigger: bool = False,
-                              output_to_file: bool = False,
-                              file_type: OutputType = OutputType.CSV,
-                              file_path: pathlib.Path = ...):
+    def configure_measurement(
+        self,
+        wait_for_trigger: bool = False,
+        output_to_file: bool = False,
+        file_type: OutputType = OutputType.CSV,
+        file_path: pathlib.Path | None = None,
+    ) -> None:
         """
         Configures measurement. Currently allows for binary output to file with path and type,
-        plus waiting for trigger to happen
+        plus waiting for trigger to happen.
 
         Parameters
         ----------
         wait_for_trigger: bool
-            Do you want to wait until trigger condition is met? False by default
+            Do you want to wait until trigger condition is met? False by default.
         output_to_file: bool
-            Do you want to record measurement to file? False by default
+            Do you want to record measurement to file? False by default.
         file_type: OutputType
-            In what format do you want to get your results? CSV by default
-        file_path: pathlib.Path
-            Contains path to the recording file, relative to your $PWD
+            In what format do you want to get your results? CSV by default.
+        file_path: pathlib.Path | None
+            Contains path to the recording file, relative to your $PWD.
         """
-        self.driver.configure_measurement(wait_for_trigger = wait_for_trigger,
-                                          output_to_file = output_to_file,
-                                          file_type = file_type,
-                                          file_path = file_path)
+        self.driver.configure_measurement(
+            wait_for_trigger=wait_for_trigger,
+            output_to_file=output_to_file,
+            file_type=file_type,
+            file_path=file_path,
+        )
 
-    def start_sampled_measurement(self, samples: int, decode: bool = False):
+    def start_sampled_measurement(
+        self, samples: int, decode: bool = False
+    ) -> typing.Any:
         """
         Starts measurement counted in samples, using previously configured sampling rate etc.
 
@@ -119,17 +135,19 @@ class Autorok:
         samples: int
             How many samples do you need?
         decode: bool
-            Enables/disables decoding. Disabled (False) by default
+            Enables/disables decoding. Disabled (False) by default.
 
         Returns
         -------
         subprocess.CompletedProcess
-            Result of measurement with extra metadata
+            Result of measurement with extra metadata.
         """
-        result = self.driver.start_sampled_measurement(samples = samples, decode = decode)
+        result = self.driver.start_sampled_measurement(samples=samples, decode=decode)
         return result
 
-    def start_framed_measurement(self, frames: int, decode: bool = False):
+    def start_framed_measurement(
+        self, frames: int, decode: bool = False
+    ) -> typing.Any:
         """
         Starts measurement counted in frames, using previously configured sampling rate etc.
 
@@ -138,31 +156,35 @@ class Autorok:
         frames: int
             How many frames do you need?
         decode: bool
-            Enables/disables decoding. Disabled (False) by default
+            Enables/disables decoding. Disabled (False) by default.
 
         Returns
         -------
         subprocess.CompletedProcess
-            Result of measurement with extra metadata
+            Result of measurement with extra metadata.
         """
-        result = self.driver.start_framed_measurement(frames = frames, decode = decode)
+        result = self.driver.start_framed_measurement(frames=frames, decode=decode)
         return result
 
-    def start_timed_measurement(self, sampling_time: int, decode: bool = False):
+    def start_timed_measurement(
+        self, sampling_time: int, decode: bool = False
+    ) -> typing.Any:
         """
-        Starts measurement for X amount of time (in seconds), using previously configured sampling rate etc
+        Starts measurement for X amount of time (in seconds), using previously configured sampling rate etc.
 
         Parameters
         ----------
         sampling_time: int
-            How long do you want to record data? (in seconds)
+            How long do you want to record data? (in seconds).
         decode: bool
-            Enables/disables decoding. Disabled (False) by default
+            Enables/disables decoding. Disabled (False) by default.
 
         Returns
         -------
         subprocess.CompletedProcess
-            Result of measurement with extra metadata
+            Result of measurement with extra metadata.
         """
-        result = self.driver.start_timed_measurement(sampling_time = sampling_time, decode = decode)
+        result = self.driver.start_timed_measurement(
+            sampling_time=sampling_time, decode=decode
+        )
         return result

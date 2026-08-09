@@ -60,9 +60,7 @@ class SigrokDriver(ABC):
         """Get configuration options for a driver."""
 
     @abstractmethod
-    def show_connected_devices_details(
-        self, driver: str = "demo"
-    ) -> typing.Any:
+    def show_connected_devices_details(self, driver: str = "demo") -> typing.Any:
         """Show details for connected devices."""
 
     @abstractmethod
@@ -74,9 +72,7 @@ class SigrokDriver(ABC):
         """Select a measurement device."""
 
     @abstractmethod
-    def configure_channels(
-        self, ch_list: list[str] | str, all_ch: bool = False
-    ) -> list[str]:
+    def configure_channels(self, ch_list: list[str] | str, all_ch: bool = False) -> list[str]:
         """Configure channels for measurement."""
 
     @abstractmethod
@@ -90,19 +86,13 @@ class SigrokDriver(ABC):
         """Configure measurement settings."""
 
     @abstractmethod
-    def start_sampled_measurement(
-        self, samples: int, decode: bool = False
-    ) -> typing.Any:
+    def start_sampled_measurement(self, samples: int, decode: bool = False) -> typing.Any:
         """Start a sampled measurement."""
 
     @abstractmethod
-    def start_framed_measurement(
-        self, frames: int, decode: bool = False
-    ) -> typing.Any:
+    def start_framed_measurement(self, frames: int, decode: bool = False) -> typing.Any:
         """Start a framed measurement."""
 
     @abstractmethod
-    def start_timed_measurement(
-        self, sampling_time: int, decode: bool = False
-    ) -> typing.Any:
+    def start_timed_measurement(self, sampling_time: int, decode: bool = False) -> typing.Any:
         """Start a timed measurement."""

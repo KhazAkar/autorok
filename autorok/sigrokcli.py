@@ -3,7 +3,6 @@ import re
 import shutil
 import subprocess
 import time
-import typing
 
 from autorok.common import OutputType, SigrokDriver
 from autorok.devices import Device, DeviceList
@@ -39,9 +38,7 @@ class SigrokCLI(SigrokDriver):
             No sigrok available.
         """
         if self._sigrok_path is None:
-            self._sigrok_path = input(
-                "Please provide full/absolute path to sigrok executable: "
-            )
+            self._sigrok_path = input("Please provide full/absolute path to sigrok executable: ")
             if not self._sigrok_path:
                 raise SigrokNotFoundError("No sigrok available, abort.")
             self._sigrok_meas_args = [self._sigrok_path]
@@ -56,9 +53,7 @@ class SigrokCLI(SigrokDriver):
         )
         return details
 
-    def _parse_sigrok_config_options(
-        self, details: subprocess.CompletedProcess[str]
-    ) -> dict[str, list[str]]:
+    def _parse_sigrok_config_options(self, details: subprocess.CompletedProcess[str]) -> dict[str, list[str]]:
         split = details.stdout.splitlines()
         for idx, line in enumerate(split):
             if "Supported configuration options" in line:
@@ -84,29 +79,21 @@ class SigrokCLI(SigrokDriver):
         output = self._parse_sigrok_config_options(details=details)
         return output
 
-    def show_connected_devices_details(
-        self, driver: str = "demo"
-    ) -> subprocess.CompletedProcess[str]:
+    def show_connected_devices_details(self, driver: str = "demo") -> subprocess.CompletedProcess[str]:
         """Uses subprocess to collect details for connected devices."""
         return self._get_details(driver=driver)
 
-    def _cleanup_subprocess_output(
-        self, subprocess_output: subprocess.CompletedProcess[str]
-    ) -> list[str]:
+    def _cleanup_subprocess_output(self, subprocess_output: subprocess.CompletedProcess[str]) -> list[str]:
         output_split = subprocess_output.stdout.split("\n")
         if output_split:
             output_split.pop(-1)  # Remove trailing newline char
         if output_split:
             output_split.pop(0)  # Remove first string
         # Gather first part of string, which contains driver
-        drivers_strings = [
-            driver[: driver.index(" ")] for driver in output_split
-        ]
+        drivers_strings = [driver[: driver.index(" ")] for driver in output_split]
         return drivers_strings
 
-    def _parse_scan_results(
-        self, subprocess_output: subprocess.CompletedProcess[str]
-    ) -> list[Device]:
+    def _parse_scan_results(self, subprocess_output: subprocess.CompletedProcess[str]) -> list[Device]:
         """Parse sigrok-cli scan output more robustly."""
         drivers_strings: list[str] = []
         device_pattern = re.compile(r"^([a-z0-9_-]+)(?::([a-z0-9/-]+))?")
@@ -135,10 +122,7 @@ class SigrokCLI(SigrokDriver):
     def scan_devices(self) -> list[Device]:
         """Scan for connected devices with caching."""
         current_time = time.time()
-        if (
-            self._scan_cache is not None
-            and (current_time - self._scan_cache_time) < self._scan_cache_ttl
-        ):
+        if self._scan_cache is not None and (current_time - self._scan_cache_time) < self._scan_cache_ttl:
             return self._scan_cache
 
         self._check_sigrok_availability()
@@ -177,17 +161,13 @@ class SigrokCLI(SigrokDriver):
             raise InvalidDeviceError("Device class instance should be passed!")
 
         if self._detected_devices and device not in self._detected_devices:
-            raise InvalidDeviceError(
-                f"Device {device} was not found in scanned devices list"
-            )
+            raise InvalidDeviceError(f"Device {device} was not found in scanned devices list")
 
         self._active_device = device
         self._sigrok_meas_args = [self._sigrok_path, "--driver", device.driver]
         return self._active_device
 
-    def configure_channels(
-        self, ch_list: list[str] | str, all_ch: bool = False
-    ) -> list[str]:
+    def configure_channels(self, ch_list: list[str] | str, all_ch: bool = False) -> list[str]:
         """
         Sets active channels for selected driver/device.
 
@@ -248,12 +228,8 @@ class SigrokCLI(SigrokDriver):
 
         if output_to_file:
             if file_path is None:
-                raise ConfigurationError(
-                    "file_path must be provided when output_to_file is True"
-                )
-            self.measurement_cfg.extend(
-                ["--output-file", str(file_path), "--output-format", file_type.value]
-            )
+                raise ConfigurationError("file_path must be provided when output_to_file is True")
+            self.measurement_cfg.extend(["--output-file", str(file_path), "--output-format", file_type.value])
 
         self._sigrok_meas_args.extend(self.measurement_cfg)
 
@@ -263,9 +239,7 @@ class SigrokCLI(SigrokDriver):
         cmd.extend([measurement_arg, str(value)])
         return cmd
 
-    def start_sampled_measurement(
-        self, samples: int, decode: bool = False
-    ) -> subprocess.CompletedProcess[str]:
+    def start_sampled_measurement(self, samples: int, decode: bool = False) -> subprocess.CompletedProcess[str]:
         """
         Starts measurement based on number of samples to gather from device.
 
@@ -293,9 +267,7 @@ class SigrokCLI(SigrokDriver):
         )
         return result
 
-    def start_framed_measurement(
-        self, frames: int, decode: bool = False
-    ) -> subprocess.CompletedProcess[str]:
+    def start_framed_measurement(self, frames: int, decode: bool = False) -> subprocess.CompletedProcess[str]:
         """
         Starts measurement, counted in frames.
 
@@ -318,9 +290,7 @@ class SigrokCLI(SigrokDriver):
         )
         return result
 
-    def start_timed_measurement(
-        self, sampling_time: int, decode: bool = False
-    ) -> subprocess.CompletedProcess[str]:
+    def start_timed_measurement(self, sampling_time: int, decode: bool = False) -> subprocess.CompletedProcess[str]:
         """
         Starts measurement for X amount of time (in seconds).
 

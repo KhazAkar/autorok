@@ -5,7 +5,6 @@ This module defines the Device dataclass and DeviceList containing all supported
 """
 
 from dataclasses import dataclass
-import typing
 
 __all__ = ["Device", "DeviceList"]
 

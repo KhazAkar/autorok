@@ -56,9 +56,7 @@ class Autorok:
 
     def scan_devices(self) -> list[Device]:
         """Scans for connected devices, parses them as Device class instances and returns list with them."""
-        output = self.driver.scan_devices()
-        print(f"Following devices were detected: {output}")
-        return output
+        return self.driver.scan_devices()
 
     def select_measurement_device(self, device: Device) -> Device:
         """
@@ -77,9 +75,7 @@ class Autorok:
         self.active_device = self.driver.select_measurement_device(device=device)
         return self.active_device
 
-    def configure_channels(
-        self, ch_list: list[str] | str, all_ch: bool = False
-    ) -> list[str]:
+    def configure_channels(self, ch_list: list[str] | str, all_ch: bool = False) -> list[str]:
         """
         Selects which channels should be used for measurement.
 
@@ -90,9 +86,7 @@ class Autorok:
         all_ch : bool
             If true, then all channels are used, by default False.
         """
-        self.active_channels = self.driver.configure_channels(
-            ch_list=ch_list, all_ch=all_ch
-        )
+        self.active_channels = self.driver.configure_channels(ch_list=ch_list, all_ch=all_ch)
         return self.active_channels
 
     def configure_measurement(
@@ -124,9 +118,7 @@ class Autorok:
             file_path=file_path,
         )
 
-    def start_sampled_measurement(
-        self, samples: int, decode: bool = False
-    ) -> typing.Any:
+    def start_sampled_measurement(self, samples: int, decode: bool = False) -> typing.Any:
         """
         Starts measurement counted in samples, using previously configured sampling rate etc.
 
@@ -145,9 +137,7 @@ class Autorok:
         result = self.driver.start_sampled_measurement(samples=samples, decode=decode)
         return result
 
-    def start_framed_measurement(
-        self, frames: int, decode: bool = False
-    ) -> typing.Any:
+    def start_framed_measurement(self, frames: int, decode: bool = False) -> typing.Any:
         """
         Starts measurement counted in frames, using previously configured sampling rate etc.
 
@@ -166,9 +156,7 @@ class Autorok:
         result = self.driver.start_framed_measurement(frames=frames, decode=decode)
         return result
 
-    def start_timed_measurement(
-        self, sampling_time: int, decode: bool = False
-    ) -> typing.Any:
+    def start_timed_measurement(self, sampling_time: int, decode: bool = False) -> typing.Any:
         """
         Starts measurement for X amount of time (in seconds), using previously configured sampling rate etc.
 
@@ -184,7 +172,5 @@ class Autorok:
         subprocess.CompletedProcess
             Result of measurement with extra metadata.
         """
-        result = self.driver.start_timed_measurement(
-            sampling_time=sampling_time, decode=decode
-        )
+        result = self.driver.start_timed_measurement(sampling_time=sampling_time, decode=decode)
         return result

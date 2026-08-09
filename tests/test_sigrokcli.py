@@ -5,10 +5,10 @@ import pathlib
 
 import pytest
 
+from autorok.autorok import Autorok, SigrokInterface
 from autorok.common import OutputType
 from autorok.devices import Device
 from autorok.exceptions import ConfigurationError, InvalidDeviceError
-from autorok.autorok import Autorok, SigrokInterface
 
 
 @pytest.fixture

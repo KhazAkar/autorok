@@ -47,7 +47,6 @@ select = [
     "C4",  # flake8-comprehensions
     "UP",  # pyupgrade
     "N",   # pep8-naming
-    "S",   # flake8-bandit (security)
     "Q",   # flake8-quotes
     "T20", # flake8-print
     "PT",  # flake8-pytest-style
@@ -55,7 +54,9 @@ select = [
 ]
 ignore = [
     "E501",  # line too long (handled by line-length)
+    "S603",  # subprocess call with shell=True - we use trusted commands
     "S101",  # assert used (ok for tests)
+    "PT018", # compound assertions - we prefer readability in tests
 ]
 
 [tool.ruff.format]

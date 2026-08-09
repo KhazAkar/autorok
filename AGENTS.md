@@ -307,19 +307,20 @@ Example structure:
 from autorok.common import SigrokDriver, OutputType
 from autorok.devices import Device
 
+
 class LibSigrok(SigrokDriver):
     """Driver using libsigrok Python bindings."""
-    
+
     def __init__(self) -> None:
         # Initialize libsigrok connection
         self._context = None
         self._session = None
-    
+
     def scan_devices(self) -> list[Device]:
         # Use libsigrok API to scan for devices
         # Return list of Device instances
         ...
-    
+
     # Implement all other abstract methods...
 ```
 
@@ -340,14 +341,17 @@ Create comprehensive tests in `tests/test_<backend>.py`:
 import pytest
 from autorok.autorok import Autorok, SigrokInterface
 
+
 @pytest.fixture
 def backend():
     return Autorok(iface=SigrokInterface.LIB_SIGROK)
+
 
 def test_scan_devices(backend):
     devices = backend.scan_devices()
     assert isinstance(devices, list)
     assert all(isinstance(d, Device) for d in devices)
+
 
 def test_configure_measurement(backend):
     # Test configuration
@@ -407,18 +411,19 @@ tests/
 from unittest.mock import Mock, patch
 import pytest
 
+
 def test_scan_devices_with_mock():
-    with patch('autorok.sigrokcli.subprocess.run') as mock_run:
+    with patch("autorok.sigrokcli.subprocess.run") as mock_run:
         # Setup mock response
         mock_result = Mock()
         mock_result.stdout = "sigrok-cli version\ndemo\n"
         mock_result.returncode = 0
         mock_run.return_value = mock_result
-        
+
         # Test
         sigrok = Autorok(iface=SigrokInterface.SIGROK_CLI)
         devices = sigrok.scan_devices()
-        
+
         # Assert
         assert len(devices) > 0
         mock_run.assert_called_once()

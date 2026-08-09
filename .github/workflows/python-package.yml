@@ -25,22 +25,28 @@ jobs:
       - name: Install uv
         run: pip install uv
 
-      - name: Install dependencies
+      - name: Create virtual environment with uv
+        run: uv venv -p ${{ matrix.python-version }}
+
+      - name: Sync dependencies with uv
         run: |
-          python -m pip install --upgrade pip
-          pip install ruff pytest pytest-cov
-          sudo apt install sigrok-cli -y
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          source .venv/bin/activate
+          uv sync --all-extras
+
+      - name: Install sigrok-cli
+        run: sudo apt install sigrok-cli -y
 
       - name: Lint with ruff
         run: |
-          ruff check autorok/ tests/
+          source .venv/bin/activate
+          uv run ruff check autorok/ tests/
 
       - name: Format check with ruff
         run: |
-          ruff format --check autorok/ tests/
+          source .venv/bin/activate
+          uv run ruff format --check autorok/ tests/
 
       - name: Test with pytest
         run: |
-          pip install -e .
-          pytest tests/ -v
+          source .venv/bin/activate
+          uv run pytest tests/ -v
